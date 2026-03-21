@@ -1,9 +1,7 @@
+import Home from "./pages/Home";
+
 function App() {
-  return (
-    <h1 className="text-4xl text-pink-500 font-bold">
-      Tailwind OK 💍
-    </h1>
-  )
+  return <Home />;
 }
 
-export default App
+export default App;
