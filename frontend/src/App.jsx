@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import Story from "./components/Story";
 import Location from "./components/Location";
 import ConfirmPresence from "./components/ConfirmPresence";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 
       {/* PRESENÇA */}
       <ConfirmPresence />
+      <ScrollToTop />
     </>
   );
 }
