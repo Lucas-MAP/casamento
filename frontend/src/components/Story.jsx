@@ -8,7 +8,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8 },
+    transition: { duration: 0.8, delay: 0.2 },
   },
 };
 
@@ -23,7 +23,7 @@ function Story() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-3xl md:text-5xl font-bold mb-20 text-center"
+        className="text-4xl md:text-6xl font-bold mb-20 text-center"
       >
         Nossa História
       </motion.h2>

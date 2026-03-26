@@ -14,21 +14,21 @@ function Hero() {
       <img
         src={heroImg}
         alt="background"
-        className="absolute w-full h-full object-cover blur-xl scale-110"
+        className="absolute w-full h-full object-cover blur-md scale-110"
       />
 
       {/* OVERLAY */}
       <div className="absolute w-full h-full bg-black/30"></div>
 
       {/* CONTEÚDO */}
-      <div className="relative z-10 w-full px-6 md:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="relative z-10 w-full px-6 md:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-14">
         {/* TEXTO */}
         <div className="max-w-[500px] text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-white mb-4">
             Lucas Mateus & Antonia Jamilly
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-6">
+          <p className="text-xl md:text-xl text-white/90 mb-6">
             18 de Dezembro de 2026
           </p>
 
@@ -38,7 +38,7 @@ function Hero() {
             {/* PRIMÁRIO */}
             <button
               onClick={() => scrollToSection("presentes")}
-              className="flex items-center justify-center gap-2 w-[260px] bg-[#8A9A5B] hover:bg-[#6F7F4A] text-white px-6 py-3 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-lg"
+              className="flex items-center justify-center gap-2 w-[260px] bg-[#6FAED9] hover:bg-[#4F94C4] text-white px-6 py-3 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <FaGift />
               Lista de presentes
@@ -47,7 +47,7 @@ function Hero() {
             {/* SECUNDÁRIO */}
             <button
               onClick={() => scrollToSection("presenca")}
-              className="flex items-center justify-center gap-2 w-[260px] bg-[#8A9A5B]/80 hover:bg-[#6F7F4A] text-white px-6 py-3 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-md"
+              className="flex items-center justify-center gap-2 w-[260px] bg-[#6FAED9]/80 hover:bg-[#4F94C4] text-white px-6 py-3 rounded-full text-base transition-all duration-300 hover:scale-105 shadow-md"
             >
               <FaCheck />
               Confirmar presença

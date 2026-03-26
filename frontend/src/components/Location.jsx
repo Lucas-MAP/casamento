@@ -15,7 +15,7 @@ function Location() {
       className="min-h-screen bg-[#f8f8f8] px-6 py-24 flex flex-col items-center"
     >
       {/* TÍTULO */}
-      <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center">
+      <h2 className="text-4xl md:text-6xl font-bold mb-12 text-center">
         Local do Evento
       </h2>
 
@@ -27,15 +27,15 @@ function Location() {
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl w-full mb-16">
         <img
           src={foto1}
-          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:shadow-xl active:scale-95 hover:shadow-xl cursor-pointer"
         />
         <img
           src={foto2}
-          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:shadow-xl active:scale-95 hover:shadow-xl cursor-pointer"
         />
         <img
           src={foto3}
-          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+          className="w-full h-[250px] object-cover rounded-xl shadow-md transition duration-300 hover:shadow-xl active:scale-95 hover:shadow-xl cursor-pointer"
         />
       </div>
 
@@ -62,7 +62,7 @@ function Location() {
 
           <button
             onClick={() => window.open(MAPS_LINK, "_blank")}
-            className="mt-4 bg-[#8A9A5B] hover:bg-[#6F7F4A] text-white px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center justify-center gap-2"
+            className="mt-4 bg-[#6FAED9] hover:bg-[#4F94C4] text-white px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-md flex items-center justify-center gap-2"
           >
             <FaDirections />
             Como chegar

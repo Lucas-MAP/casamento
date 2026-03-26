@@ -26,7 +26,7 @@ function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 bg-[#8A9A5B] hover:bg-[#6F7F4A] text-white p-5 md:p-6 rounded-full shadow-2xl ring-2 ring-white/30 transition-all duration-300 hover:scale-110"
+      className="fixed bottom-6 right-6 z-50 bg-[#6FAED9] hover:bg-[#4F94C4] text-white p-5 md:p-6 rounded-full shadow-2xl ring-2 ring-white/30 transition-all duration-300 hover:scale-110"
     >
       <FaArrowUp size={24} />
     </button>
