@@ -17,7 +17,7 @@ function GiftList() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center">
+    <section id="presentes" className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center">
       {/* TÍTULO */}
       <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Lista de Presentes 🎁
