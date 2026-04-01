@@ -3,6 +3,7 @@ import { guests } from "../data/guests";
 import { FaCheckCircle, FaClock, FaUserTie } from "react-icons/fa";
 import bgConfirm from "../assets/bg-confirm.jpeg";
 import GodfatherArea from "./GodfatherArea";
+import axios from "axios";
 
 function ConfirmPresence() {
   const [name, setName] = useState("");
@@ -20,11 +21,13 @@ function ConfirmPresence() {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const guest = guests.find((g) =>
-      normalize(name).includes(normalize(g.name))
+    const guest = guests.find(
+      (g) =>
+        normalize(g.name) === normalize(name) ||
+        normalize(g.name).includes(normalize(name)),
     );
 
     if (!guest) {
@@ -33,12 +36,27 @@ function ConfirmPresence() {
     }
 
     if (guestsCount > guest.maxGuests) {
-      alert(`Você pode levar até ${guest.maxGuests} pessoa(s), incluindo você!`);
+      alert(
+        `Você pode levar até ${guest.maxGuests} pessoa(s), incluindo você!`,
+      );
       return;
     }
 
-    setGuestFound(guest);
-    setConfirmed(true);
+    try {
+      // 🔥 SALVA NO BACKEND
+      await axios.post("http://localhost:3000/confirm", {
+        name: guest.name, // salva nome correto da lista
+        guestsCount,
+        isGodfather: guest.isGodfather || false,
+      });
+
+      // salva localmente pra UI
+      setGuestFound(guest);
+      setConfirmed(true);
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao salvar confirmação 😢");
+    }
   };
 
   // 🔥 SCROLL AUTOMÁTICO (CORRETO)
@@ -116,11 +134,11 @@ function ConfirmPresence() {
                 onChange={(e) => setGuestsCount(Number(e.target.value))}
                 className="px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#6FAED9]"
               >
-                <option value={1}>Só eu</option>
-                <option value={2}>+1 pessoa</option>
-                <option value={3}>+2 pessoas</option>
-                <option value={4}>+3 pessoas</option>
-                <option value={5}>+4 pessoas</option>
+                <option value={1}>Só eu</option>  
+                <option value={2}>eu e +1 pessoa</option>
+                <option value={3}>eu e +2 pessoas</option>
+                <option value={4}>eu e +3 pessoas</option>
+                <option value={5}>eu e +4 pessoas</option>
               </select>
 
               <button
