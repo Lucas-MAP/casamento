@@ -31,9 +31,9 @@ mongoose
   .then(() => console.log("🔥 MongoDB conectado"))
   .catch((err) => console.log("❌ Mongo erro:", err));
 
-// 🔥 START SERVER
+// 🔥 START SERVER (CORRIGIDO AQUI 👇)
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server rodando na porta ${PORT}`);
 });

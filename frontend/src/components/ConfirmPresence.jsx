@@ -11,9 +11,11 @@ function ConfirmPresence() {
   const [confirmed, setConfirmed] = useState(false);
   const [guestFound, setGuestFound] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
   const vipRef = useRef(null);
 
-  // 🔥 NORMALIZAÇÃO (resolve acento, espaço, etc)
   const normalize = (str) =>
     str
       .toLowerCase()
@@ -24,6 +26,8 @@ function ConfirmPresence() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setErrorMsg("");
+
     const guest = guests.find(
       (g) =>
         normalize(g.name) === normalize(name) ||
@@ -31,35 +35,46 @@ function ConfirmPresence() {
     );
 
     if (!guest) {
-      alert("Seu nome não está na lista de convidados 😢");
+      setErrorMsg("Seu nome não está na lista de convidados 😢");
       return;
     }
 
     if (guestsCount > guest.maxGuests) {
-      alert(
+      setErrorMsg(
         `Você pode levar até ${guest.maxGuests} pessoa(s), incluindo você!`,
       );
       return;
     }
 
     try {
-      // 🔥 SALVA NO BACKEND
+      setLoading(true);
+
       await axios.post("http://localhost:3000/confirm", {
-        name: guest.name, // salva nome correto da lista
+        name: guest.name,
         guestsCount,
         isGodfather: guest.isGodfather || false,
       });
 
-      // salva localmente pra UI
       setGuestFound(guest);
       setConfirmed(true);
+
+      // limpa campos
+      setName("");
+      setGuestsCount(1);
+
     } catch (error) {
       console.error(error);
-      alert("Erro ao salvar confirmação 😢");
+
+      if (error.response?.data?.error) {
+        setErrorMsg(error.response.data.error);
+      } else {
+        setErrorMsg("Erro ao salvar confirmação 😢");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
-  // 🔥 SCROLL AUTOMÁTICO (CORRETO)
   useEffect(() => {
     if (confirmed && guestFound?.isGodfather) {
       vipRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -68,22 +83,18 @@ function ConfirmPresence() {
 
   return (
     <>
-      {/* 🔹 SEÇÃO PRINCIPAL */}
       <section
         id="presenca"
         className="min-h-screen relative overflow-hidden flex items-center justify-center px-6 py-24"
       >
-        {/* FUNDO */}
         <img
           src={bgConfirm}
           alt="background"
           className="absolute w-full h-full object-cover blur-lg scale-110"
         />
 
-        {/* OVERLAY */}
         <div className="absolute w-full h-full bg-white/70 backdrop-blur-sm"></div>
 
-        {/* CONTEÚDO */}
         <div className="relative z-10 w-full flex flex-col items-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-center">
             Confirmar Presença
@@ -93,7 +104,6 @@ function ConfirmPresence() {
             Sua presença é muito importante pra gente 💛
           </p>
 
-          {/* INFO */}
           <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 max-w-xl w-full mb-12 shadow-md flex flex-col gap-4">
             <div className="flex items-center gap-3 text-gray-700">
               <FaClock className="text-[#8A9A5B]" />
@@ -115,7 +125,6 @@ function ConfirmPresence() {
             </div>
           </div>
 
-          {/* FORM */}
           {!confirmed ? (
             <form
               onSubmit={handleSubmit}
@@ -134,18 +143,30 @@ function ConfirmPresence() {
                 onChange={(e) => setGuestsCount(Number(e.target.value))}
                 className="px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[#6FAED9]"
               >
-                <option value={1}>Só eu</option>  
+                <option value={1}>Só eu</option>
                 <option value={2}>eu e +1 pessoa</option>
                 <option value={3}>eu e +2 pessoas</option>
                 <option value={4}>eu e +3 pessoas</option>
                 <option value={5}>eu e +4 pessoas</option>
               </select>
 
+              {/* ERRO */}
+              {errorMsg && (
+                <div className="bg-red-100 text-red-700 px-4 py-2 rounded-lg text-sm">
+                  {errorMsg}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="bg-[#6FAED9] hover:bg-[#4F94C4] text-white py-3 rounded-full transition-all duration-300 hover:scale-105"
+                disabled={loading}
+                className={`text-white py-3 rounded-full transition-all duration-300 ${
+                  loading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#6FAED9] hover:bg-[#4F94C4] hover:scale-105"
+                }`}
               >
-                Confirmar presença
+                {loading ? "Enviando..." : "Confirmar presença"}
               </button>
             </form>
           ) : (
@@ -156,10 +177,9 @@ function ConfirmPresence() {
         </div>
       </section>
 
-      {/* 🔥 ÁREA VIP */}
       {confirmed && guestFound?.isGodfather && (
         <div ref={vipRef}>
-          <GodfatherArea name={name} />
+          <GodfatherArea name={guestFound.name} />
         </div>
       )}
     </>

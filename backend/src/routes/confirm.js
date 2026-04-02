@@ -10,6 +10,15 @@ router.post("/", async (req, res) => {
   try {
     const { name, guestsCount, isGodfather } = req.body;
 
+    // 🔒 BLOQUEIO DE DUPLICADO
+    const existingGuest = await GuestConfirmation.findOne({ name });
+
+    if (existingGuest) {
+      return res.status(400).json({
+        error: "Este nome já confirmou presença 💙",
+      });
+    }
+
     const newGuest = new GuestConfirmation({
       name,
       guestsCount,
@@ -19,6 +28,7 @@ router.post("/", async (req, res) => {
     await newGuest.save();
 
     res.status(201).json({ message: "Confirmado com sucesso 🔥" });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Erro ao salvar" });
@@ -59,6 +69,7 @@ router.get("/export", async (req, res) => {
     res.header("Content-Type", "text/csv");
     res.attachment("convidados.csv");
     res.send(csv);
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Erro ao exportar dados" });
