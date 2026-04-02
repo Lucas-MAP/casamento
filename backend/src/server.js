@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
 
 import confirmRoutes from "./routes/confirm.js";
 import paymentRoutes from "./routes/payment.js";
@@ -10,28 +12,46 @@ dotenv.config();
 
 const app = express();
 
-// 🔥 MIDDLEWARES
-app.use(cors());
-app.use(express.json());
+// 🔐 HEADERS
+app.use(helmet());
+
+// 🔐 RATE LIMIT
+app.use(
+  rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+  })
+);
+
+// 🔐 CORS
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://lucas-map.github.io",
+    ],
+  })
+);
+
+// 🔐 LIMIT BODY
+app.use(express.json({ limit: "10kb" }));
 
 // 🔥 ROTAS
 app.use("/confirm", confirmRoutes);
 app.use("/payment", paymentRoutes);
 
-console.log("tokenMP:", process.env.MP_ACCESS_TOKEN);
-
-// 🔥 TESTE RÁPIDO
+// 🔥 TESTE
 app.get("/", (req, res) => {
   res.send("API rodando 🚀");
 });
 
-// 🔥 CONEXÃO MONGO
+// 🔥 MONGO
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("🔥 MongoDB conectado"))
   .catch((err) => console.log("❌ Mongo erro:", err));
 
-// 🔥 START SERVER (CORRIGIDO AQUI 👇)
+// 🔥 START
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
