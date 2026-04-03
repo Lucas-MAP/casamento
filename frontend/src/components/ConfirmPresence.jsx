@@ -49,7 +49,7 @@ function ConfirmPresence() {
     try {
       setLoading(true);
 
-      await axios.post("http://localhost:3000/confirm", {
+      await axios.post("/api/confirm", {
         name: guest.name,
         guestsCount,
         isGodfather: guest.isGodfather || false,
