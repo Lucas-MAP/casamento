@@ -29,6 +29,7 @@ function Story() {
       </motion.h2>
 
       <div className="max-w-6xl w-full flex flex-col gap-24">
+        
         {/* BLOCO 1 */}
         <motion.div
           variants={fadeUp}
@@ -43,11 +44,20 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">
-              Onde tudo começou
-            </h3>
-            <p className="text-gray-600">
-              Tudo começou de forma simples…
+            <h3 className="text-2xl font-semibold mb-4">Onde tudo começou</h3>
+
+            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+              Nossa história ganhou forma em meados de 2024, em Marabá, unida
+              pelo carinho de amigos queridos. Mas, na verdade, ela começou
+              muito antes, no silêncio das orações. Desde o primeiro instante,
+              a certeza foi mútua: era para ser a gente.
+              <br /><br />
+              Do início do namoro até aqui, nunca houve dúvida sobre a nossa
+              escolha, nem mesmo os quilômetros entre o Pará e o Tocantins
+              foram capazes de nos afastar. O que nasceu em solo paraense agora
+              será eternizado diante de Deus, de nossa família e amigos.
+              <br /><br />
+              Estamos prontos para o nosso "para sempre".
             </p>
           </div>
         </motion.div>
@@ -66,11 +76,20 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">
-              Construindo juntos
-            </h3>
-            <p className="text-gray-600">
-              Entre risadas e momentos…
+            <h3 className="text-2xl font-semibold mb-4">Construindo juntos</h3>
+
+            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+              Nossa vida é feita de movimento. Juntos, somamos quilômetros de
+              estrada em viagens de moto (vulgo Spectro), colecionamos
+              aventuras e muitas histórias na bagagem.
+              <br /><br />
+              Desde o começo, nossa base foi construída no apoio mútuo e no
+              cuidado diário. Partilhamos sonhos e caminhamos lado a lado para
+              realizá-los.
+              <br /><br />
+              Nos ajudamos nos dias cansativos de trabalho e nas noites longas
+              de estudo, sendo um para o outro o incentivo para não desistir.
+              Mais do que amor, vivemos uma verdadeira parceria.
             </p>
           </div>
         </motion.div>
@@ -89,11 +108,18 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">
-              Nosso novo capítulo
-            </h3>
-            <p className="text-gray-600">
-              E agora queremos celebrar…
+            <h3 className="text-2xl font-semibold mb-4">Nosso novo capítulo</h3>
+
+            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+              A resposta das nossas orações e o fruto da nossa parceria nos
+              trouxeram até aqui. Agora estamos prestes a iniciar a jornada mais
+              importante das nossas vidas: a construção da nossa família.
+              <br /><br />
+              O "para sempre", que antes era um sonho, agora tem data e lugar.
+              Este novo capítulo será escrito diante de Deus e das pessoas que
+              amamos.
+              <br /><br />
+              Queremos você fazendo parte desse momento tão especial 💙
             </p>
           </div>
         </motion.div>

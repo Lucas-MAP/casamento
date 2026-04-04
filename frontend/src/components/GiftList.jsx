@@ -2,6 +2,16 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import coupleImg from "../assets/casal_praia.jpg";
 
+// IMPORTA AS IMAGENS
+import viagem from "../assets/presentes/viagem.png";
+import culinaria from "../assets/presentes/culinaria.png";
+import almofada from "../assets/presentes/almofada.png";
+import cinema from "../assets/presentes/cinema.png";
+import praia from "../assets/presentes/praia.png";
+import casamento from "../assets/presentes/casamento.png";
+import coberta from "../assets/presentes/coberta.jpeg";
+import louça from "../assets/presentes/louça.png";
+
 function GiftList() {
   const TOTAL_EXPECTED = 50;
   const [contributions, setContributions] = useState(18);
@@ -11,13 +21,72 @@ function GiftList() {
     100,
   );
 
-  const handleDonate = () => {
+  // 🎁 LISTA DE PRESENTES
+  const presentes = [
+    {
+      id: 1,
+      nome: "Incentive o noivo a lavar a louça (com sorte 😅)",
+      valor: 50,
+      img: louça,
+    },
+    {
+      id: 2,
+      nome: "Curso de culinária para a noiva 👩‍🍳",
+      valor: 100,
+      img: culinaria,
+    },
+    {
+      id: 3,
+      nome: "🎬 Cinema + pipoca gigante",
+      valor: 150,
+      img: cinema,
+    },
+    {
+      id: 4,
+      nome: "🛋️ Almofada (caso alguém durma nela 😅)",
+      valor: 250,
+      img: almofada,
+    },
+    {
+      id: 5,
+      nome: "☕ Coberta para a noiva (sempre certa 😌)",
+      valor: 300,
+      img: coberta,
+    },
+    {
+      id: 6,
+      nome: "🏝️ Ajuda na viagem dos sonhos",
+      valor: 500,
+      img: praia,
+    },
+    {
+      id: 7,
+      nome: "✈️ Passeio na lua de mel",
+      valor: 750,
+      img: viagem,
+    },
+    {
+      id: 8,
+      nome: "💍 Investimento no nosso casamento",
+      valor: 1000,
+      img: casamento,
+    },
+  ];
+
+  // 🚀 FUTURO: integrar com Mercado Pago
+  const handleSelecionar = (item) => {
+    console.log("Selecionado:", item);
+
+    // MOCK POR ENQUANTO
     setContributions((prev) => prev + 1);
-    alert("Obrigado pelo presente 💙");
+    alert(`Você escolheu: ${item.nome} 💙`);
   };
 
   return (
-    <section id="presentes" className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center">
+    <section
+      id="presentes"
+      className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center"
+    >
       {/* TÍTULO */}
       <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Lista de Presentes 🎁
@@ -49,7 +118,7 @@ function GiftList() {
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 1 }}
-                  className="h-full bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] shadow-[0_0_15px_rgba(111,174,217,0.5)]"
+                  className="h-full bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2]"
                 />
               </div>
 
@@ -61,25 +130,33 @@ function GiftList() {
         </div>
       </div>
 
-      {/* CARDS */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl w-full">
-        {[100, 150, 200, 500].map((value) => (
-          <button
-            key={value}
-            onClick={handleDonate}
-            className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border text-center"
+      {/* 🎁 GRID DE PRESENTES */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl w-full">
+        {presentes.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => handleSelecionar(item)}
+            className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
           >
-            <p className="text-xl font-semibold">R$ {value}</p>
-            <p className="text-sm text-gray-500 mt-1">Contribuir</p>
-          </button>
+            {/* IMAGEM */}
+            <div className="h-28 w-full overflow-hidden">
+              <img src={item.img} className="w-full h-full object-cover" />
+            </div>
+
+            {/* TEXTO */}
+            <div className="p-4 text-center">
+              <p className="text-sm font-medium">{item.nome}</p>
+              <p className="font-bold mt-2 text-blue-600">R$ {item.valor}</p>
+            </div>
+          </div>
         ))}
 
         {/* OUTRO VALOR */}
         <button
-          onClick={handleDonate}
+          onClick={() => alert("Aqui depois entra valor personalizado 💰")}
           className="col-span-2 md:col-span-4 bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] text-white rounded-2xl p-6 text-lg font-semibold hover:scale-[1.02] transition-all duration-300 shadow-lg"
         >
-          Escolher outro valor 💙
+          💸 Escolher outro valor (qualquer ajuda é bem vinda😅)
         </button>
       </div>
     </section>
