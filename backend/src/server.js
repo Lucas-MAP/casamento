@@ -12,6 +12,8 @@ import webhookRoutes from "./routes/webhook.js";
 
 dotenv.config();
 
+console.log("TOKEN BACKEND SERVER.JS:", process.env.MP_ACCESS_TOKEN);
+
 const app = express();
 
 // 🔐 HEADERS
@@ -40,7 +42,7 @@ app.use(express.json({ limit: "10kb" }));
 
 // 🔥 ROTAS
 app.use("/confirm", confirmRoutes);
-app.use("/payment", paymentRoutes);
+app.use("/api", paymentRoutes);
 app.use("/webhook", webhookRoutes);
 
 

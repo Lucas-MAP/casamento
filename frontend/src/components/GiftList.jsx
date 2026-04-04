@@ -66,7 +66,7 @@ function GiftList() {
           ? "http://localhost:3000"
           : "https://convite-lj.duckdns.org";
 
-      const response = await fetch(`${API_URL}/payment`, {
+      const response = await fetch(`${API_URL}/api/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,13 +3,18 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/payment", async (req, res) => {
   try {
     const { name, amount } = req.body;
 
     if (!name || !amount) {
-      return res.status(400).json({ error: "Dados inválidos" });
+      return res.status(400).json({
+        error: "Dados inválidos",
+      });
     }
+
+    // 🔥 DEBUG: ver se token tá chegando
+    console.log("TOKEN payment.js:", process.env.MP_ACCESS_TOKEN);
 
     const client = new MercadoPagoConfig({
       accessToken: process.env.MP_ACCESS_TOKEN,
@@ -29,11 +34,22 @@ router.post("/", async (req, res) => {
       },
     });
 
-    return res.json({ url: response.init_point });
+    // 🔥 DEBUG COMPLETO
+    console.log("🔍 RESPONSE COMPLETA:");
+    console.dir(response, { depth: null });
+
+    // ✅ CORRETO (SEM .body)
+    return res.json({
+      url: response.init_point,
+    });
 
   } catch (error) {
     console.error("🔥 ERRO:", error);
-    return res.status(500).json({ error: "Erro ao criar pagamento" });
+
+    return res.status(500).json({
+      error: "Erro ao criar pagamento",
+      details: error.message,
+    });
   }
 });
 
