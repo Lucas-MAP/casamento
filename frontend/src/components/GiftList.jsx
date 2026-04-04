@@ -25,7 +25,7 @@ function GiftList() {
   const presentes = [
     {
       id: 1,
-      nome: "Incentive o noivo a lavar a louça (com sorte 😅)",
+      nome: "Incentive o noivo a lavar a louça (ou pelo menos tentar 😅)",
       valor: 50,
       img: louça,
     },
@@ -100,8 +100,7 @@ function GiftList() {
       </h2>
 
       <p className="text-gray-600 text-center max-w-2xl mb-20 text-lg">
-        Se desejar nos presentear, você pode contribuir com o nosso futuro
-        juntos 💙
+        Se desejar nos presentear, temos algumas sugestões para você. 💙
       </p>
 
       {/* CARD */}
@@ -125,10 +124,6 @@ function GiftList() {
                   className="h-full bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2]"
                 />
               </div>
-
-              <p className="text-gray-600 text-base">
-                Já estamos mais próximos do nosso sonho 💙
-              </p>
             </div>
           </div>
         </div>

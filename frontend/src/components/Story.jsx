@@ -119,7 +119,9 @@ function Story() {
               Este novo capítulo será escrito diante de Deus e das pessoas que
               amamos.
               <br /><br />
-              Queremos você fazendo parte desse momento tão especial 💙
+              Gostariamos de convidar você para testemunhar o inicio dessa nova estrada, que deixaremos
+	      para trás a distância entre o Pará e o Tocantins para em breve dividirmos o mesmo lar e o
+              mesmo futuro.
             </p>
           </div>
         </motion.div>
