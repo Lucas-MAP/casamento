@@ -23,20 +23,50 @@ function GiftList() {
 
   // 🎁 LISTA
   const presentes = [
-    { id: 1, nome: "Incentive o noivo a lavar a louça (com sorte 😅)", valor: 50, img: louça },
-    { id: 2, nome: "Curso de culinária para a noiva 👩‍🍳", valor: 100, img: culinaria },
+    {
+      id: 1,
+      nome: "Incentive o noivo a lavar a louça (com sorte 😅)",
+      valor: 50,
+      img: louça,
+    },
+    {
+      id: 2,
+      nome: "Curso de culinária para a noiva 👩‍🍳",
+      valor: 100,
+      img: culinaria,
+    },
     { id: 3, nome: "🎬 Cinema + pipoca gigante", valor: 150, img: cinema },
-    { id: 4, nome: "🛋️ Almofada (caso alguém durma nela 😅)", valor: 250, img: almofada },
-    { id: 5, nome: "☕ Coberta para a noiva (sempre certa 😌)", valor: 300, img: coberta },
+    {
+      id: 4,
+      nome: "🛋️ Almofada (caso alguém durma nela 😅)",
+      valor: 250,
+      img: almofada,
+    },
+    {
+      id: 5,
+      nome: "☕ Coberta para a noiva (sempre certa 😌)",
+      valor: 300,
+      img: coberta,
+    },
     { id: 6, nome: "🏝️ Ajuda na viagem dos sonhos", valor: 500, img: praia },
     { id: 7, nome: "✈️ Passeio na lua de mel", valor: 750, img: viagem },
-    { id: 8, nome: "💍 Investimento no nosso casamento", valor: 1000, img: casamento },
+    {
+      id: 8,
+      nome: "💍 Investimento no nosso casamento",
+      valor: 1000,
+      img: casamento,
+    },
   ];
 
   // 🚀 INTEGRAÇÃO REAL COM BACKEND
   const handleSelecionar = async (item) => {
     try {
-      const response = await fetch("http://localhost:3000/payment", {
+      const API_URL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:3000"
+          : "https://convite-lj.duckdns.org";
+          
+      const response = await fetch(`${API_URL}/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +85,6 @@ function GiftList() {
 
       // 🔥 REDIRECIONA
       window.location.href = data.url;
-
     } catch (error) {
       console.error("Erro ao iniciar pagamento:", error);
       alert("Erro ao iniciar pagamento 😢");
@@ -72,14 +101,14 @@ function GiftList() {
       </h2>
 
       <p className="text-gray-600 text-center max-w-2xl mb-20 text-lg">
-        Se desejar nos presentear, você pode contribuir com o nosso futuro juntos 💙
+        Se desejar nos presentear, você pode contribuir com o nosso futuro
+        juntos 💙
       </p>
 
       {/* CARD */}
       <div className="w-full max-w-7xl mb-20">
         <div className="bg-white p-6 md:p-10 rounded-3xl shadow-xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-
             <div className="w-full h-[300px] md:h-[420px] rounded-2xl overflow-hidden bg-gray-100">
               <img src={coupleImg} className="w-full h-full object-cover" />
             </div>
