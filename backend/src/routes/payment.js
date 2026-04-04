@@ -1,11 +1,11 @@
 import express from "express";
 import { MercadoPagoConfig, Preference } from "mercadopago";
+const { name, amount } = req.body;
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-
     const client = new MercadoPagoConfig({
       accessToken: process.env.MP_ACCESS_TOKEN,
     });
@@ -16,9 +16,9 @@ router.post("/", async (req, res) => {
       body: {
         items: [
           {
-            title: "Produto Teste",
+            title: name,
             quantity: 1,
-            unit_price: 50,
+            unit_price: Number(amount),
           },
         ],
       },
@@ -27,7 +27,6 @@ router.post("/", async (req, res) => {
     return res.json({
       url: response.init_point,
     });
-
   } catch (error) {
     console.error("🔥 ERRO:", error);
     return res.status(500).json({ error: "Erro ao criar pagamento" });

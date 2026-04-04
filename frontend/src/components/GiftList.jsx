@@ -65,7 +65,7 @@ function GiftList() {
         window.location.hostname === "localhost"
           ? "http://localhost:3000"
           : "https://convite-lj.duckdns.org";
-          
+
       const response = await fetch(`${API_URL}/payment`, {
         method: "POST",
         headers: {
@@ -87,7 +87,6 @@ function GiftList() {
       window.location.href = data.url;
     } catch (error) {
       console.error("Erro ao iniciar pagamento:", error);
-      alert("Erro ao iniciar pagamento 😢");
     }
   };
 
@@ -156,7 +155,6 @@ function GiftList() {
 
         {/* EXTRA */}
         <button
-          onClick={() => alert("Aqui depois entra valor personalizado 💰")}
           className="col-span-2 md:col-span-4 bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] text-white rounded-2xl p-6 text-lg font-semibold hover:scale-[1.02] transition-all duration-300 shadow-lg"
         >
           💸 Escolher outro valor (qualquer ajuda é bem vinda😅)
