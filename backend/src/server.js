@@ -1,12 +1,14 @@
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 
 import confirmRoutes from "./routes/confirm.js";
 import paymentRoutes from "./routes/payment.js";
+
+import webhookRoutes from "./routes/webhook.js";
 
 dotenv.config();
 
@@ -39,6 +41,8 @@ app.use(express.json({ limit: "10kb" }));
 // 🔥 ROTAS
 app.use("/confirm", confirmRoutes);
 app.use("/payment", paymentRoutes);
+app.use("/webhook", webhookRoutes);
+
 
 // 🔥 TESTE
 app.get("/", (req, res) => {

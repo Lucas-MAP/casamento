@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import coupleImg from "../assets/casal_praia.jpg";
 
-// IMPORTA AS IMAGENS
+// IMAGENS
 import viagem from "../assets/presentes/viagem.png";
 import culinaria from "../assets/presentes/culinaria.png";
 import almofada from "../assets/presentes/almofada.png";
@@ -21,65 +21,45 @@ function GiftList() {
     100,
   );
 
-  // 🎁 LISTA DE PRESENTES
+  // 🎁 LISTA
   const presentes = [
-    {
-      id: 1,
-      nome: "Incentive o noivo a lavar a louça (com sorte 😅)",
-      valor: 50,
-      img: louça,
-    },
-    {
-      id: 2,
-      nome: "Curso de culinária para a noiva 👩‍🍳",
-      valor: 100,
-      img: culinaria,
-    },
-    {
-      id: 3,
-      nome: "🎬 Cinema + pipoca gigante",
-      valor: 150,
-      img: cinema,
-    },
-    {
-      id: 4,
-      nome: "🛋️ Almofada (caso alguém durma nela 😅)",
-      valor: 250,
-      img: almofada,
-    },
-    {
-      id: 5,
-      nome: "☕ Coberta para a noiva (sempre certa 😌)",
-      valor: 300,
-      img: coberta,
-    },
-    {
-      id: 6,
-      nome: "🏝️ Ajuda na viagem dos sonhos",
-      valor: 500,
-      img: praia,
-    },
-    {
-      id: 7,
-      nome: "✈️ Passeio na lua de mel",
-      valor: 750,
-      img: viagem,
-    },
-    {
-      id: 8,
-      nome: "💍 Investimento no nosso casamento",
-      valor: 1000,
-      img: casamento,
-    },
+    { id: 1, nome: "Incentive o noivo a lavar a louça (com sorte 😅)", valor: 50, img: louça },
+    { id: 2, nome: "Curso de culinária para a noiva 👩‍🍳", valor: 100, img: culinaria },
+    { id: 3, nome: "🎬 Cinema + pipoca gigante", valor: 150, img: cinema },
+    { id: 4, nome: "🛋️ Almofada (caso alguém durma nela 😅)", valor: 250, img: almofada },
+    { id: 5, nome: "☕ Coberta para a noiva (sempre certa 😌)", valor: 300, img: coberta },
+    { id: 6, nome: "🏝️ Ajuda na viagem dos sonhos", valor: 500, img: praia },
+    { id: 7, nome: "✈️ Passeio na lua de mel", valor: 750, img: viagem },
+    { id: 8, nome: "💍 Investimento no nosso casamento", valor: 1000, img: casamento },
   ];
 
-  // 🚀 FUTURO: integrar com Mercado Pago
-  const handleSelecionar = (item) => {
-    console.log("Selecionado:", item);
+  // 🚀 INTEGRAÇÃO REAL COM BACKEND
+  const handleSelecionar = async (item) => {
+    try {
+      const response = await fetch("http://localhost:3000/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: item.nome,
+          amount: item.valor,
+        }),
+      });
 
-    // MOCK POR ENQUANTO
-    setContributions((prev) => prev + 1);
-    alert(`Você escolheu: ${item.nome} 💙`);
+      const data = await response.json();
+
+      if (!data.url) {
+        throw new Error("URL não retornada");
+      }
+
+      // 🔥 REDIRECIONA
+      window.location.href = data.url;
+
+    } catch (error) {
+      console.error("Erro ao iniciar pagamento:", error);
+      alert("Erro ao iniciar pagamento 😢");
+    }
   };
 
   return (
@@ -87,32 +67,28 @@ function GiftList() {
       id="presentes"
       className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center"
     >
-      {/* TÍTULO */}
       <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
         Lista de Presentes 🎁
       </h2>
 
       <p className="text-gray-600 text-center max-w-2xl mb-20 text-lg">
-        Se desejar nos presentear, você pode contribuir com o nosso futuro
-        juntos 💙
+        Se desejar nos presentear, você pode contribuir com o nosso futuro juntos 💙
       </p>
 
-      {/* CARD PRINCIPAL */}
+      {/* CARD */}
       <div className="w-full max-w-7xl mb-20">
         <div className="bg-white p-6 md:p-10 rounded-3xl shadow-xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* FOTO */}
-            <div className="w-full h-[300px] md:h-[420px] rounded-2xl overflow-hidden flex items-center justify-center bg-gray-100">
+
+            <div className="w-full h-[300px] md:h-[420px] rounded-2xl overflow-hidden bg-gray-100">
               <img src={coupleImg} className="w-full h-full object-cover" />
             </div>
 
-            {/* PROGRESSO */}
             <div className="flex flex-col gap-6">
               <h3 className="text-2xl md:text-3xl font-semibold">
                 Nosso sonho juntos 💙
               </h3>
 
-              {/* BARRA */}
               <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
@@ -130,7 +106,7 @@ function GiftList() {
         </div>
       </div>
 
-      {/* 🎁 GRID DE PRESENTES */}
+      {/* 🎁 GRID */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl w-full">
         {presentes.map((item) => (
           <div
@@ -138,12 +114,10 @@ function GiftList() {
             onClick={() => handleSelecionar(item)}
             className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
           >
-            {/* IMAGEM */}
             <div className="h-28 w-full overflow-hidden">
               <img src={item.img} className="w-full h-full object-cover" />
             </div>
 
-            {/* TEXTO */}
             <div className="p-4 text-center">
               <p className="text-sm font-medium">{item.nome}</p>
               <p className="font-bold mt-2 text-blue-600">R$ {item.valor}</p>
@@ -151,7 +125,7 @@ function GiftList() {
           </div>
         ))}
 
-        {/* OUTRO VALOR */}
+        {/* EXTRA */}
         <button
           onClick={() => alert("Aqui depois entra valor personalizado 💰")}
           className="col-span-2 md:col-span-4 bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] text-white rounded-2xl p-6 text-lg font-semibold hover:scale-[1.02] transition-all duration-300 shadow-lg"
