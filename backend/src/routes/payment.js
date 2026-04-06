@@ -13,8 +13,7 @@ router.post("/payment", async (req, res) => {
       });
     }
 
-    // 🔥 DEBUG: ver se token tá chegando
-    console.log("TOKEN payment.js:", process.env.MP_ACCESS_TOKEN);
+    // DEBUG
 
     const client = new MercadoPagoConfig({
       accessToken: process.env.MP_ACCESS_TOKEN,
@@ -31,24 +30,31 @@ router.post("/payment", async (req, res) => {
             unit_price: Number(amount),
           },
         ],
+
+        // 🔥 WEBHOOK (ESSENCIAL)
+        notification_url: "https://convite-lj.duckdns.org/api/webhook",
+
+        // 🔙 Redirecionamento
+        back_urls: {
+          success: "https://convite-lj.duckdns.org",
+          failure: "https://convite-lj.duckdns.org",
+          pending: "https://convite-lj.duckdns.org",
+        },
+
+        auto_return: "approved",
       },
     });
 
-    // 🔥 DEBUG COMPLETO
     console.log("🔍 RESPONSE COMPLETA:");
     console.dir(response, { depth: null });
 
-    // ✅ CORRETO (SEM .body)
     return res.json({
       url: response.init_point,
     });
-
   } catch (error) {
     console.error("🔥 ERRO:", error);
-
     return res.status(500).json({
       error: "Erro ao criar pagamento",
-      details: error.message,
     });
   }
 });
