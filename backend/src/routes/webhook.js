@@ -3,6 +3,9 @@ import axios from "axios";
 
 const router = express.Router();
 
+// 🔥 URL DA SUA PLANILHA
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxt1NxI_ONh44YPhzXmp4bfzcnQyKwy9ILOgp2nkcj6ZOZHuunr_8ssUxNUozLVOJQ2Zw/exec";
+
 // 🔥 WEBHOOK MERCADO PAGO
 router.post("/", async (req, res) => {
   try {
@@ -49,9 +52,18 @@ router.post("/", async (req, res) => {
     console.log("📧 Email:", email);
     console.log("💵 Valor:", amount);
 
-    // 🔥 AQUI VAI SER O GANCHO PRA PLANILHA
-    // (próxima etapa)
-    // await salvarNaPlanilha({ name, email, amount });
+    // 🔥 SALVAR NA PLANILHA
+    try {
+      await axios.post(GOOGLE_SHEETS_URL, {
+        nome: name,
+        email: email,
+        valor: amount,
+      });
+
+      console.log("📊 SALVO NA PLANILHA!");
+    } catch (err) {
+      console.error("❌ ERRO AO SALVAR NA PLANILHA:", err.message);
+    }
 
     return res.sendStatus(200);
 
