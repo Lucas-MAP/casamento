@@ -14,14 +14,16 @@ import louça from "../assets/presentes/louça.png";
 
 function GiftList() {
   const TOTAL_EXPECTED = 50;
-  const [contributions, setContributions] = useState(18);
+  const [contributions] = useState(18);
+
+  const [showModal, setShowModal] = useState(false);
+  const [customValue, setCustomValue] = useState("");
 
   const progress = Math.min(
     Math.round((contributions / TOTAL_EXPECTED) * 100),
     100,
   );
 
-  // 🎁 LISTA
   const presentes = [
     {
       id: 1,
@@ -58,7 +60,6 @@ function GiftList() {
     },
   ];
 
-  // 🚀 INTEGRAÇÃO REAL COM BACKEND
   const handleSelecionar = async (item) => {
     try {
       const API_URL =
@@ -73,21 +74,33 @@ function GiftList() {
         },
         body: JSON.stringify({
           name: item.nome,
-          amount: item.valor,
+          amount: Number(item.valor),
         }),
       });
 
       const data = await response.json();
 
-      if (!data.url) {
-        throw new Error("URL não retornada");
-      }
+      if (!data.url) throw new Error("URL não retornada");
 
-      // 🔥 REDIRECIONA
       window.location.href = data.url;
     } catch (error) {
       console.error("Erro ao iniciar pagamento:", error);
     }
+  };
+
+  const handleCustomPayment = () => {
+    if (!customValue || customValue <= 0) {
+      alert("Digite um valor válido");
+      return;
+    }
+
+    handleSelecionar({
+      nome: "Presente livre 💝",
+      valor: Number(customValue),
+    });
+
+    setShowModal(false);
+    setCustomValue("");
   };
 
   return (
@@ -129,7 +142,7 @@ function GiftList() {
         </div>
       </div>
 
-      {/* 🎁 GRID */}
+      {/* GRID */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl w-full">
         {presentes.map((item) => (
           <div
@@ -143,18 +156,54 @@ function GiftList() {
 
             <div className="p-4 text-center">
               <p className="text-sm font-medium">{item.nome}</p>
-              <p className="font-bold mt-2 text-blue-600">R$ {item.valor}</p>
+              <p className="font-bold mt-2 text-blue-600">
+                R$ {item.valor}
+              </p>
             </div>
           </div>
         ))}
 
-        {/* EXTRA */}
+        {/* BOTÃO AZUL */}
         <button
+          onClick={() => setShowModal(true)}
           className="col-span-2 md:col-span-4 bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] text-white rounded-2xl p-6 text-lg font-semibold hover:scale-[1.02] transition-all duration-300 shadow-lg"
         >
           💸 Escolher outro valor (qualquer ajuda é bem vinda😅)
         </button>
       </div>
+
+      {/* MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-2xl shadow-xl w-[90%] max-w-md flex flex-col gap-4">
+            <h3 className="text-xl font-bold text-center">
+              Escolha o valor 💙
+            </h3>
+
+            <input
+              type="number"
+              placeholder="Digite o valor (ex: 50)"
+              value={customValue}
+              onChange={(e) => setCustomValue(e.target.value)}
+              className="border p-3 rounded-lg text-center"
+            />
+
+            <button
+              onClick={handleCustomPayment}
+              className="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600"
+            >
+              Pagar 💳
+            </button>
+
+            <button
+              onClick={() => setShowModal(false)}
+              className="text-gray-500 text-sm"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
