@@ -31,6 +31,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://lucas-map.github.io",
+      "https://convite-lj.duckdns.org",
     ],
   })
 );
@@ -39,7 +40,7 @@ app.use(
 app.use(express.json({ limit: "10kb" }));
 
 // 🔥 ROTAS
-app.use("/confirm", confirmRoutes);
+app.use("/api/confirm", confirmRoutes);
 app.use("/api", paymentRoutes);
 app.use("/api/webhook", webhookRoutes);
 

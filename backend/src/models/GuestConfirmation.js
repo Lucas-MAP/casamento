@@ -26,6 +26,12 @@ const guestSchema = new mongoose.Schema({
     default: false,
   },
 
+  // AJUSTE: Adicionado para salvar as Madrinhas corretamente
+  isGodmother: {
+    type: Boolean,
+    default: false,
+  },
+
   confirmedAt: {
     type: Date,
     default: Date.now,

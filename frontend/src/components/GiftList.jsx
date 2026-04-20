@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import coupleImg from "../assets/casal_praia.jpg";
+import coupleImg from "../assets/praia_1.jpeg";
 
-// IMAGENS
+// IMPORTAÇÃO DAS IMAGENS ORIGINAIS
 import viagem from "../assets/presentes/viagem.png";
 import culinaria from "../assets/presentes/culinaria.png";
 import almofada from "../assets/presentes/almofada.png";
@@ -13,17 +13,10 @@ import coberta from "../assets/presentes/coberta.jpeg";
 import louça from "../assets/presentes/louça.png";
 
 function GiftList() {
-  const TOTAL_EXPECTED = 50;
-  const [contributions] = useState(18);
-
   const [showModal, setShowModal] = useState(false);
   const [customValue, setCustomValue] = useState("");
 
-  const progress = Math.min(
-    Math.round((contributions / TOTAL_EXPECTED) * 100),
-    100,
-  );
-
+  // LISTA DE PRESENTES COM SEUS TEXTOS E IMAGENS ORIGINAIS
   const presentes = [
     {
       id: 1,
@@ -46,7 +39,7 @@ function GiftList() {
     },
     {
       id: 5,
-      nome: "☕ Coberta para a noiva (sempre certa 😌)",
+      nome: "☕ Coberta para a noiva (que está sempre coberta de razão 😌)",
       valor: 300,
       img: coberta,
     },
@@ -79,9 +72,7 @@ function GiftList() {
       });
 
       const data = await response.json();
-
       if (!data.url) throw new Error("URL não retornada");
-
       window.location.href = data.url;
     } catch (error) {
       console.error("Erro ao iniciar pagamento:", error);
@@ -93,115 +84,122 @@ function GiftList() {
       alert("Digite um valor válido");
       return;
     }
-
     handleSelecionar({
       nome: "Presente livre 💝",
       valor: Number(customValue),
     });
-
     setShowModal(false);
     setCustomValue("");
   };
 
   return (
-    <section
-      id="presentes"
-      className="bg-gradient-to-b from-[#F8FAFC] to-[#E0F2FE] px-6 py-28 flex flex-col items-center"
+    <section 
+      id="presentes" 
+      className="bg-[#FAF9F6] px-6 py-28 flex flex-col items-center overflow-hidden"
     >
-      <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center">
-        Lista de Presentes 🎁
-      </h2>
-
-      <p className="text-gray-600 text-center max-w-2xl mb-20 text-lg">
-        Se desejar nos presentear, temos algumas sugestões para você. 💙
-      </p>
-
-      {/* CARD */}
-      <div className="w-full max-w-7xl mb-20">
-        <div className="bg-white p-6 md:p-10 rounded-3xl shadow-xl">
+      <div className="w-full max-w-6xl mx-auto">
+        {/* CARD BRANCO UNIFICADO */}
+        <div className="bg-white p-8 md:p-14 rounded-[3rem] shadow-2xl relative border border-gray-50 flex flex-col gap-12">
+          
+          {/* TOPO: FOTO E TEXTO */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="w-full h-[300px] md:h-[420px] rounded-2xl overflow-hidden bg-gray-100">
-              <img src={coupleImg} className="w-full h-full object-cover" />
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-[350px] md:h-[480px] rounded-[2.5rem] overflow-hidden shadow-2xl"
+            >
+              <img 
+                src={coupleImg} 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" 
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
 
             <div className="flex flex-col gap-6">
-              <h3 className="text-2xl md:text-3xl font-semibold">
-                Nosso sonho juntos 💙
-              </h3>
-
-              <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1 }}
-                  className="h-full bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2]"
-                />
-              </div>
+              <h2 className="text-5xl md:text-7xl font-display text-[#1a3a5c] leading-tight">
+                Lista de <br /> <span className="italic font-serif">Presentes</span> 🎁
+              </h2>
+              <p className="text-[#1a3a5c]/70 text-lg md:text-xl font-serif italic">
+                Se desejar nos presentear, temos algumas sugestões para você. <br />
+                Sua presença é o nosso maior presente, mas qualquer gesto <br />
+                é recebido com muito carinho. 💙
+              </p>
             </div>
+          </div>
+
+          {/* GRID DE PRESENTES INTEGRADO DENTRO DO CARD BRANCO */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {presentes.map((item) => (
+              <motion.div
+                key={item.id}
+                whileHover={{ y: -5 }}
+                onClick={() => handleSelecionar(item)}
+                className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
+              >
+                <div className="h-32 md:h-44 w-full overflow-hidden relative">
+                  <img 
+                    src={item.img} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                <div className="p-5 text-center flex-grow flex flex-col justify-between">
+                  <p className="text-sm font-serif italic text-[#1a3a5c]/80 line-clamp-3 mb-3 leading-tight">
+                    {item.nome}
+                  </p>
+                  <p className="font-display text-lg text-[#1a3a5c] font-bold">
+                    R$ {item.valor}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* BOTÃO INTEGRADO AO GRID */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              onClick={() => setShowModal(true)}
+              className="col-span-2 md:col-span-4 mt-4 bg-[#1a3a5c] rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 cursor-pointer hover:bg-black transition-all duration-500 shadow-xl"
+            >
+              <div className="flex flex-col text-center md:text-left gap-1">
+                <span className="text-white text-2xl md:text-3xl font-display leading-tight">Escolher outro valor</span>
+                <span className="text-white/60 text-sm font-serif italic">Qualquer contribuição nos ajuda imensamente! 💙</span>
+              </div>
+              <div className="bg-white text-[#1a3a5c] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-lg">
+                Presentear 💸
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* GRID */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl w-full">
-        {presentes.map((item) => (
-          <div
-            key={item.id}
-            onClick={() => handleSelecionar(item)}
-            className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
-          >
-            <div className="h-28 w-full overflow-hidden">
-              <img src={item.img} className="w-full h-full object-cover" />
-            </div>
-
-            <div className="p-4 text-center">
-              <p className="text-sm font-medium">{item.nome}</p>
-              <p className="font-bold mt-2 text-blue-600">
-                R$ {item.valor}
-              </p>
-            </div>
-          </div>
-        ))}
-
-        {/* BOTÃO AZUL */}
-        <button
-          onClick={() => setShowModal(true)}
-          className="col-span-2 md:col-span-4 bg-gradient-to-r from-[#7FB3D5] to-[#5DADE2] text-white rounded-2xl p-6 text-lg font-semibold hover:scale-[1.02] transition-all duration-300 shadow-lg"
-        >
-          💸 Escolher outro valor (qualquer ajuda é bem vinda😅)
-        </button>
-      </div>
-
       {/* MODAL */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-2xl shadow-xl w-[90%] max-w-md flex flex-col gap-4">
-            <h3 className="text-xl font-bold text-center">
-              Escolha o valor 💙
-            </h3>
-
-            <input
-              type="number"
-              placeholder="Digite o valor (ex: 50)"
-              value={customValue}
-              onChange={(e) => setCustomValue(e.target.value)}
-              className="border p-3 rounded-lg text-center"
-            />
-
-            <button
-              onClick={handleCustomPayment}
-              className="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600"
-            >
-              Pagar 💳
-            </button>
-
-            <button
-              onClick={() => setShowModal(false)}
-              className="text-gray-500 text-sm"
-            >
-              Cancelar
-            </button>
-          </div>
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-[100] p-6">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white p-10 rounded-[3rem] shadow-2xl w-full max-w-md flex flex-col gap-8 relative text-[#1a3a5c]"
+          >
+            <button onClick={() => setShowModal(false)} className="absolute top-8 right-8 text-gray-400 hover:text-black">✕</button>
+            <div className="text-center">
+              <h3 className="text-2xl font-display mb-2">Valor Livre 💙</h3>
+              <p className="text-gray-500 text-sm font-serif italic">Digite o valor que deseja nos presentear</p>
+            </div>
+            <div className="relative">
+              <span className="absolute left-6 top-1/2 -translate-y-1/2 font-bold text-xl opacity-30">R$</span>
+              <input
+                type="number"
+                placeholder="0,00"
+                value={customValue}
+                onChange={(e) => setCustomValue(e.target.value)}
+                autoFocus
+                className="w-full border-b-2 border-gray-100 pl-16 pr-6 py-6 text-4xl font-display outline-none focus:border-[#0c3969] transition-all bg-transparent"
+              />
+            </div>
+            <button onClick={handleCustomPayment} className="w-full bg-[#1a3a5c] text-white py-5 rounded-full font-bold text-lg hover:bg-black transition-all shadow-xl active:scale-95">Confirmar 💳</button>
+          </motion.div>
         </div>
       )}
     </section>
