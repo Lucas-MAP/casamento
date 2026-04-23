@@ -132,7 +132,6 @@ function ConfirmPresence() {
 
   return (
     <>
-      {/* SEÇÃO PRINCIPAL (CÓDIGO IGUAL AO SEU) */}
       <section id="presenca" className="min-h-screen relative overflow-hidden flex items-center justify-center px-6 py-24">
         <img src={bgConfirm} alt="background" className="absolute w-full h-full object-cover blur-lg scale-110 opacity-40" />
         <div className="absolute w-full h-full bg-[#FAF9F6]/80 backdrop-blur-sm" />
@@ -153,14 +152,56 @@ function ConfirmPresence() {
 
           {!confirmed ? (
             <form onSubmit={handleSubmit} className="bg-white p-10 rounded-[2.5rem] shadow-2xl w-full max-w-lg flex flex-col gap-6 text-left">
-              <input type="text" placeholder="Seu nome" value={name} onChange={(e) => setName(e.target.value)} className={`w-full px-5 py-4 rounded-2xl border outline-none font-serif text-lg ${getInputBorder(nameStatus)}`} />
+              {/* Nome Principal */}
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className={`w-full px-5 py-4 rounded-2xl border outline-none font-serif text-lg ${getInputBorder(nameStatus)}`}
+                />
+                <div className="absolute right-5 top-1/2 -translate-y-1/2">
+                  {nameStatus === "valid" && <span className="text-green-500 font-bold text-xl">✓</span>}
+                  {nameStatus === "invalid" && <span className="text-red-400 font-bold text-xl">X</span>}
+                </div>
+                {nameStatus === "invalid" && (
+                  <p className="text-red-400 text-[10px] absolute -bottom-5 left-2 italic font-bold">Nome não encontrado na lista oficial</p>
+                )}
+              </div>
+
               <div className="mt-2 text-left">
                 <label className="text-[10px] uppercase tracking-widest text-[#1a3a5c]/50 mb-2 block ml-2 font-bold font-sans">Quantas pessoas?</label>
-                <select value={guestsCount} onChange={(e) => setGuestsCount(Number(e.target.value))} className="w-full px-5 py-4 rounded-2xl border border-gray-100 outline-none focus:border-[#6FAED9] bg-gray-50/30 font-serif">
+                <select value={guestsCount} onChange={(e) => setGuestsCount(Number(e.target.value))} className="w-full px-5 py-4 rounded-2xl border border-gray-100 outline-none focus:border-[#6FAED9] bg-gray-50/30 font-serif text-lg">
                   <option value={1}>Apenas eu</option>
-                  {[2, 3, 4, 5].map(n => <option key={n} value={n}>Eu e +{n - 1} pessoa(s)</option>)}
+                  {[2, 3, 4, 5].map(n => <option key={n} value={n}>{n} pessoa(s)</option>)}
                 </select>
               </div>
+
+              {/* Nomes Extras */}
+              {extraNames.map((extra, index) => (
+                <div key={index} className="relative animate-fadeIn">
+                  <input
+                    type="text"
+                    placeholder={`Nome completo do convidado ${index + 2}`}
+                    value={extra}
+                    onChange={(e) => {
+                      const updated = [...extraNames];
+                      updated[index] = e.target.value;
+                      setExtraNames(updated);
+                    }}
+                    className={`w-full px-5 py-4 rounded-2xl border outline-none font-serif text-lg ${getInputBorder(extraNamesStatus[index])}`}
+                  />
+                  <div className="absolute right-5 top-1/2 -translate-y-1/2">
+                    {extraNamesStatus[index] === "valid" && <span className="text-green-500 font-bold text-xl">✓</span>}
+                    {extraNamesStatus[index] === "invalid" && <span className="text-red-400 font-bold text-xl">X</span>}
+                  </div>
+                  {extraNamesStatus[index] === "invalid" && (
+                    <p className="text-red-400 text-[10px] absolute -bottom-5 left-2 italic font-bold">Nome não encontrado na lista oficial</p>
+                  )}
+                </div>
+              ))}
+
               <button type="submit" disabled={loading} className={`text-white py-5 rounded-full font-bold text-lg shadow-lg ${loading ? "bg-gray-300" : "bg-[#6FAED9] hover:bg-[#1a3a5c] shadow-[#6FAED9]/20"}`}>
                 {loading ? "Processando..." : getButtonLabel()}
               </button>
@@ -175,7 +216,6 @@ function ConfirmPresence() {
         </div>
       </section>
 
-      {/* RENDERIZAÇÃO DINÂMICA */}
       {confirmed && (
         <div ref={vipRef}>
           {vipGuests.length > 0 && vipGuests.map((g, i) => (
