@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import coupleImg from "../assets/praia_1.jpeg";
+import coupleImg from "../assets/Fim_história.jpeg";
 
 // IMPORTAÇÃO DAS IMAGENS ORIGINAIS
 import viagem from "../assets/presentes/viagem.png";
@@ -47,7 +47,7 @@ function GiftList() {
     { id: 7, nome: "✈️ Passeio na lua de mel", valor: 750, img: viagem },
     {
       id: 8,
-      nome: "💍 Investimento no nosso casamento",
+      nome: "💍 Deixa Deus te usar.",
       valor: 1000,
       img: casamento,
     },
@@ -118,7 +118,7 @@ function GiftList() {
 
             <div className="flex flex-col gap-6">
               <h2 className="text-5xl md:text-7xl font-display text-[#1a3a5c] leading-tight">
-                Lista de <br /> <span className="italic font-serif">Presentes</span> 🎁
+                Lista de Presentes🎁
               </h2>
               <p className="text-[#1a3a5c]/70 text-lg md:text-xl font-serif italic">
                 Se desejar nos presentear, temos algumas sugestões para você. <br />

@@ -17,7 +17,7 @@ const guestSchema = new mongoose.Schema({
   guestsCount: {
     type: Number,
     required: true,
-    min: 1,
+    min: 0, // 👇 NOVO: 0 para ausências
     max: 5,
   },
 
@@ -26,10 +26,16 @@ const guestSchema = new mongoose.Schema({
     default: false,
   },
 
-  // AJUSTE: Adicionado para salvar as Madrinhas corretamente
   isGodmother: {
     type: Boolean,
     default: false,
+  },
+
+  // 👇 NOVO
+  status: {
+    type: String,
+    enum: ["confirmed", "declined"],
+    default: "confirmed",
   },
 
   confirmedAt: {

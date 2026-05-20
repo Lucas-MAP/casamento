@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import foto1 from "../assets/foto1.jpeg";
 import foto2 from "../assets/foto2.jpeg";
-import foto3 from "../assets/praia_1.jpeg";
+import foto3 from "../assets/presente_img.jpeg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
@@ -23,7 +23,7 @@ function Story() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-4xl md:text-6xl font-bold mb-20 text-center"
+        className="text-4xl md:text-6xl font-bold mb-20 text-center text-[#1a3a5c]"
       >
         Nossa História
       </motion.h2>
@@ -43,9 +43,11 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">Onde tudo começou</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-[#1a3a5c]">
+              Onde tudo começou
+            </h3>
 
-            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+            <p className="text-[#35516d] text-lg leading-relaxed text-justify">
               Nossa história ganhou forma em meados de 2024, em Marabá, unida
               pelo carinho de amigos queridos. Mas, na verdade, ela começou
               muito antes, no silêncio das nossas orações.
@@ -73,9 +75,11 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">Construindo juntos</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-[#1a3a5c]">
+              Construindo juntos
+            </h3>
 
-            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+            <p className="text-[#35516d] text-lg leading-relaxed text-justify">
               Nossa vida é feita de movimento. Juntos, somamos quilômetros de
               estrada em viagens de moto (vulgo Spectro), colecionamos aventuras
               e muitas histórias na bagagem. Desde o começo da nossa história,
@@ -107,9 +111,11 @@ function Story() {
           />
 
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold mb-4">Nosso novo capítulo</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-[#1a3a5c]">
+              Nosso novo capítulo
+            </h3>
 
-            <p className="text-gray-600 text-lg leading-relaxed text-justify">
+            <p className="text-[#35516d] text-lg leading-relaxed text-justify">
               A resposta de nossas orações e o fruto da nossa parceria nos
               trouxeram até aqui. Agora, estamos prestes a iniciar a jornada
               mais importante das nossas vidas: a construção da nossa própria

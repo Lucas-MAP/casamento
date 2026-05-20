@@ -4,8 +4,8 @@ import GuestConfirmation from "../models/GuestConfirmation.js";
 
 const router = express.Router();
 
-// 📊 URL QUE VOCÊ GEROU NO GOOGLE APPS SCRIPT
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyKGrL_ZQBoeM0ZhCic_196lCH5dZtfkiphoiTp12fcDjIKHbX4IXvWcpenElmH6iMsZQ/exec";
+// nova URL
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwahn6OuqwPOMQgW_muBVlTUy1Y0uCA_bGcfnQE8O2snU6dZ4MVPUpr9m9XuKlzK2dWQw/exec";
 
 const normalize = (str) =>
   str
@@ -37,7 +37,6 @@ router.post("/", async (req, res) => {
     const cleanName = name.trim();
     const normalizedName = normalize(cleanName);
 
-    // 🔒 Verifica duplicidade no MongoDB
     const existingGuest = await GuestConfirmation.findOne({ normalizedName });
     if (existingGuest) {
       return res.status(400).json({ error: "Este nome já confirmou presença 💙" });
@@ -53,7 +52,6 @@ router.post("/", async (req, res) => {
 
     await newGuest.save();
 
-    // 🔥 ENVIA PARA A PLANILHA DO GOOGLE DRIVE
     try {
       await axios.post(GOOGLE_SHEETS_URL, {
         action: "confirm",
@@ -68,6 +66,50 @@ router.post("/", async (req, res) => {
     res.status(201).json({ message: "Confirmado com sucesso 🔥" });
   } catch (error) {
     console.error("ERRO CONFIRM:", error);
+    res.status(500).json({ error: "Erro interno" });
+  }
+});
+
+// 👇 NOVO: rota de recusa
+router.post("/decline", async (req, res) => {
+  try {
+    let { name } = req.body;
+    name = sanitize(name);
+
+    if (!name || typeof name !== "string") return res.status(400).json({ error: "Nome inválido" });
+    const cleanName = name.trim();
+    if (cleanName.length < 2 || cleanName.length > 100) return res.status(400).json({ error: "Nome inválido" });
+
+    const normalizedName = normalize(cleanName);
+
+    const existingGuest = await GuestConfirmation.findOne({ normalizedName });
+    if (existingGuest) {
+      return res.status(400).json({ error: "Este nome já registrou uma resposta 💙" });
+    }
+
+    const newGuest = new GuestConfirmation({
+      name: cleanName,
+      normalizedName,
+      guestsCount: 0,
+      status: "declined",
+    });
+
+    await newGuest.save();
+
+    try {
+      await axios.post(GOOGLE_SHEETS_URL, {
+        action: "decline",
+        nome: cleanName,
+        guestsCount: 0,
+        data: new Date().toLocaleString("pt-BR"),
+      });
+    } catch (err) {
+      console.error("❌ Erro Planilha:", err.message);
+    }
+
+    res.status(201).json({ message: "Registrado com sucesso 💙" });
+  } catch (error) {
+    console.error("ERRO DECLINE:", error);
     res.status(500).json({ error: "Erro interno" });
   }
 });

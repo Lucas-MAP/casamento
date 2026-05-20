@@ -5,6 +5,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      script: ['"Great Vibes"', 'cursive'],
+    },
   },
   plugins: [],
+  
 }
