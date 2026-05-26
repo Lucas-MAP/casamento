@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import coupleImg from "../assets/Fim_história.jpeg";
 
 // IMPORTAÇÃO DAS IMAGENS ORIGINAIS
-import viagem from "../assets/presentes/viagem.png";
-import culinaria from "../assets/presentes/culinaria.png";
-import almofada from "../assets/presentes/almofada.png";
-import cinema from "../assets/presentes/cinema.png";
-import praia from "../assets/presentes/praia.png";
-import casamento from "../assets/presentes/casamento.png";
+import viagem from "../assets/presentes/viagem.jpeg";
+import culinaria from "../assets/presentes/culinaria.jpeg";
+import almofada from "../assets/presentes/almofada.jpeg";
+import cinema from "../assets/presentes/cinema.jpeg";
+import praia from "../assets/presentes/praia.jpeg";
+import casamento from "../assets/presentes/casamento.jpeg";
 import coberta from "../assets/presentes/coberta.jpeg";
-import louça from "../assets/presentes/louça.png";
+import louça from "../assets/presentes/louça.jpeg";
 
 function GiftList() {
   const [showModal, setShowModal] = useState(false);

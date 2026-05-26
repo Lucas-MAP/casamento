@@ -107,7 +107,7 @@ function Story() {
         >
           <img
             src={foto3}
-            className="w-full md:w-1/2 h-[400px] object-cover rounded-2xl shadow-lg"
+            className="w-full md:w-1/2 h-[500px] object-cover rounded-2xl shadow-lg"
           />
 
           <div className="md:w-1/2">
