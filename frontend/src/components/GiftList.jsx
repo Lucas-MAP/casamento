@@ -45,13 +45,13 @@ function GiftList() {
     {
       id: 5,
       nome: "☕ Coberta para a noiva (que está sempre coberta de razão 😌)",
-      valor: 500,
+      valor: 250,
       img: coberta,
     },
     {
       id: 6,
       nome: "🏝️ Ajuda na viagem dos sonhos",
-      valor: 500,
+      valor: 600,
       img: praia,
     },
     {
@@ -141,7 +141,7 @@ function GiftList() {
 
             <div className="flex flex-col gap-6">
               <h2 className="text-5xl md:text-7xl font-display text-[#1a3a5c] leading-tight">
-                Lista de Presentes🎁
+                Lista de presentes🎁
               </h2>
 
               <p className="text-[#1a3a5c]/70 text-lg md:text-xl font-serif italic">
@@ -208,7 +208,7 @@ function GiftList() {
               </div>
 
               <div className="bg-white text-[#1a3a5c] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-lg">
-                Presentear 💸
+                Presentear
               </div>
             </motion.div>
           </div>

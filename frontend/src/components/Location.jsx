@@ -20,7 +20,7 @@ function Location() {
         whileInView={{ opacity: 1, y: 0 }}
         className="text-center mb-16"
       >
-        <h2 className="text-5xl md:text-7xl font-display text-[#1a3a5c] mb-6">Local do Evento</h2>
+        <h2 className="text-5xl md:text-7xl font-display text-[#1a3a5c] mb-6">Local do evento</h2>
         <div className="w-20 h-1 bg-[#6FAED9] mx-auto rounded-full mb-6" />
         <p className="text-[#1a3a5c]/70 font-serif italic text-xl">
           Escolhemos um lugar especial para celebrar esse momento com você ✨

@@ -35,7 +35,7 @@ function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl font-serif italic text-[#1a3a5c]/80 mb-6 font-medium">
-            18 de Dezembro de 2026
+            18 de dezembro de 2026
           </p>
 
           {/* BOTÕES */}

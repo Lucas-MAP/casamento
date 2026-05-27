@@ -25,7 +25,7 @@ function Story() {
         viewport={{ once: true }}
         className="text-4xl md:text-6xl font-bold mb-20 text-center text-[#1a3a5c]"
       >
-        Nossa História
+        Nossa história
       </motion.h2>
 
       <div className="max-w-6xl w-full flex flex-col gap-24">
