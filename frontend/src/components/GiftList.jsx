@@ -164,7 +164,7 @@ function GiftList() {
             >
               <div className="flex flex-col text-center md:text-left gap-1">
                 <span className="text-white text-2xl md:text-3xl font-display leading-tight">Escolher outro valor</span>
-                <span className="text-white/60 text-sm font-serif italic">Qualquer contribuição nos ajuda imensamente! 💙</span>
+                <span className="text-white/60 text-sm font-serif italic">Se preferir, sinta-se à vontade para nos presentear com o valor que desejar!💙</span>
               </div>
               <div className="bg-white text-[#1a3a5c] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-lg">
                 Presentear 💸
