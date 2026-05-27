@@ -5,8 +5,8 @@ export const guests = [
   { name: "Mariana Alves", maxGuests: 3 },
   { name: "Rodolfo Alves", maxGuests: 1 },
   { name: "Rafael Alves", maxGuests: 1 },
-  { name: "Thayana Alves", maxGuests: 3 },
-  { name: "Charles marido da thayana", maxGuests: 3 },
+  { name: "Thaiana patrícia doria alves braga", maxGuests: 3 },
+  { name: "Charles albuquerque braga", maxGuests: 3 },
   { name: "Rita Alves", maxGuests: 1 },
 
   // FAMÍLIA 2
