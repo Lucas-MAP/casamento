@@ -245,7 +245,7 @@ function ConfirmPresence() {
           </h2>
 
           <p className="text-[#1a3a5c]/70 max-w-xl mb-12 font-serif italic text-xl">
-            Sua presença é muito importante para nós! 💛
+            Sua presença é muito importante para nós! 💙
           </p>
 
           <div className="bg-white/90 backdrop-blur-md rounded-[2rem] p-8 max-w-xl w-full mb-12 shadow-xl border border-white/50 flex flex-col gap-5 text-left">
