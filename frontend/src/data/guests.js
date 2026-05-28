@@ -55,7 +55,7 @@ export const guests = [
 
   // FAMÍLIA 10
   { name: "Sebastiana Silva", maxGuests: 3 },
-  { name: "Manuel Lima", maxGuests: 3 },
+  { name: "Manoel Lima", maxGuests: 3 },
   { name: "Marlene Silva", maxGuests: 3 },
   { name: "Josenildo Ferreira", maxGuests: 3 },
   { name: "Joelison Ferreira", maxGuests: 0 },
