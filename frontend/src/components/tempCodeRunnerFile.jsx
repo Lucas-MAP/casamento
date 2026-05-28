@@ -79,10 +79,7 @@ function GodfatherArea({ name, isGodmother }) {
 
             <ul className="flex flex-col gap-2">
               {config.itens.map((item, i) => (
-                <li
-                  key={i}
-                  className="text-xl text-[#1a3a5c] flex items-center gap-2"
-                >
+                <li key={i} className="text-xl text-[#1a3a5c] flex items-center gap-2">
                   <span className="text-[#1a3a5c]">•</span> {item}
                 </li>
               ))}
@@ -101,15 +98,8 @@ function GodfatherArea({ name, isGodmother }) {
               </div>
             )}
 
-            <p className="text-lg text-[#1a3a5c] font-medium mt-4 italic leading-8 text-justify md:text-left">
-              Existem pessoas que a vida coloca no nosso caminho e que vão se
-              tornando parte da nossa história. Pessoas que estiveram presentes
-              nas alegrias, nos medos, nas conquistas e nos momentos em que mais
-              precisamos. Você é uma dessas pessoas para nós. Chegar até esse
-              dia só foi possível porque, em algum momento, você também fez
-              parte do caminho. E é por isso que, agora, queremos você ao nosso
-              lado para celebrar o início de uma nova história.Obrigado por
-              fazer parte desse momento tão especial! 💙
+            <p className="text-lg text-[#1a3a5c] font-medium mt-4 italic">
+              Existem pessoas que a vida coloca no nosso caminho e que vão se tornando parte da nossa história. Pessoas que estiveram presentes nas alegrias, nos medos, nas conquistas e nos momentos em que mais precisamos. Você é uma dessas pessoas para nós. Chegar até esse dia só foi possível porque, em algum momento, você também fez parte do caminho. E é por isso que, agora, queremos você ao nosso lado para celebrar o início de uma nova história.Obrigado por fazer parte desse momento tão especial! 💙
             </p>
           </div>
         </div>
@@ -117,17 +107,13 @@ function GodfatherArea({ name, isGodmother }) {
         {/* DICAS */}
         <div className="grid md:grid-cols-2 gap-6 w-full">
           <div className="bg-white/95 rounded-2xl p-6 shadow-md border border-blue-100">
-            <h4 className="font-semibold mb-3 text-xl text-[#1a3a5c]">
-              📌 Dicas
-            </h4>
+            <h4 className="font-semibold mb-3 text-xl text-[#1a3a5c]">📌 Dicas</h4>
             <p className="text-gray-600">⏰ Chegue 30 min antes</p>
             <p className="text-gray-600">📸 Tire muitas fotos</p>
           </div>
 
           <div className="bg-white/95 rounded-2xl p-6 shadow-md border border-blue-100">
-            <h4 className="font-semibold mb-3 text-xl text-[#1a3a5c]">
-              📅 Data
-            </h4>
+            <h4 className="font-semibold mb-3 text-xl text-[#1a3a5c]">📅 Data</h4>
             <p className="text-gray-600">18 de Dezembro de 2026</p>
             <p className="text-gray-600">A partir das 19:00h</p>
           </div>
