@@ -55,7 +55,7 @@ export const guests = [
 
   // FAMÍLIA 10
   { name: "Sebastiana Silva", maxGuests: 3 },
-  { name: "Manoel Lima", maxGuests: 3 },
+  { name: "Manuel Lima", maxGuests: 3 },
   { name: "Marlene Silva", maxGuests: 3 },
   { name: "Josenildo Ferreira", maxGuests: 3 },
   { name: "Joelison Ferreira", maxGuests: 0 },
@@ -64,7 +64,9 @@ export const guests = [
   { name: "Josenilson Ferreira", maxGuests: 1 },
   { name: "Dina Ferreira", maxGuests: 1 },
   { name: "Maria de Fátima", maxGuests: 1 },
-
+  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
+  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
+  
   // FAMÍLIA 11
   { name: "Adriana Almeida", maxGuests: 1 },
   { name: "Francislei Fernandes", maxGuests: 1 },
@@ -101,11 +103,11 @@ export const guests = [
   // FAMÍLIA 16
   { name: "Cláudio Oliveira", maxGuests: 1 },
   { name: "Jaqueline Oliveira", maxGuests: 1 },
-  
+
   // FAMÍLIA 17
   { name: "Osorio Passos Reis", maxGuests: 0 },
   { name: "Elis Regina Cardoso Felipe", maxGuests: 0 },
-  
+
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
