@@ -2,7 +2,7 @@ export const guests = [
   // FAMÍLIA 1
   { name: "Tadeu Alves", maxGuests: 0 },
   { name: "Telma Alves", maxGuests: 1 },
-  { name: "Mariana Alves", maxGuests: 0 },
+  { name: "Mariana Doria", maxGuests: 0 },
   { name: "Rodolfo Alves", maxGuests: 0 },
   { name: "Rafael Alves", maxGuests: 0 },
   { name: "Thaiana patrícia doria alves braga", maxGuests: 0 },
@@ -48,10 +48,10 @@ export const guests = [
   { name: "Alessandra Nunes", maxGuests: 0 },
 
   // FAMÍLIA 9
-  { name: "Aldo Alves", maxGuests: 3 },
-  { name: "Ana Alves", maxGuests: 3 },
-  { name: "Alan Alves", maxGuests: 0 },
-  { name: "Aldo Luiz", maxGuests: 0, isGodfather: true },
+  { name: "Aldo Luiz Paes Alves", maxGuests: 3 },
+  { name: "Ana Claudia Maciel do Nascimento Alves", maxGuests: 3 },
+  { name: "Alan Gustavo do Nascimento Alves", maxGuests: 0 },
+  { name: "Aldo Luiz do Nascimento Alves", maxGuests: 0, isGodfather: true },
 
   // FAMÍLIA 10
   { name: "Sebastiana Silva", maxGuests: 3 },
