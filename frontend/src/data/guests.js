@@ -8,6 +8,7 @@ export const guests = [
   { name: "Thaiana patrícia doria alves braga", maxGuests: 0 },
   { name: "Charles albuquerque braga", maxGuests: 0 },
   { name: "Rita Alves", maxGuests: 0 },
+  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
 
   // FAMÍLIA 2
   { name: "Isabel Chagas", maxGuests: 0 },
@@ -50,8 +51,8 @@ export const guests = [
   // FAMÍLIA 9
   { name: "Aldo Luiz Paes Alves", maxGuests: 3 },
   { name: "Ana Claudia Maciel do Nascimento Alves", maxGuests: 3 },
-  { name: "Alan Gustavo do Nascimento Alves", maxGuests: 0 },
-  { name: "Aldo Luiz do Nascimento Alves", maxGuests: 0, isGodfather: true },
+  { name: "Alan Gustavo do nascimento Alves", maxGuests: 0 },
+  { name: "Aldo Luiz do nascimento Alves", maxGuests: 0, isGodfather: true },
 
   // FAMÍLIA 10
   { name: "Sebastiana Silva", maxGuests: 3 },
@@ -64,9 +65,7 @@ export const guests = [
   { name: "Josenilson Ferreira", maxGuests: 1 },
   { name: "Dina Ferreira", maxGuests: 1 },
   { name: "Maria de Fátima", maxGuests: 1 },
-  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
-  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
-  
+
   // FAMÍLIA 11
   { name: "Adriana Almeida", maxGuests: 1 },
   { name: "Francislei Fernandes", maxGuests: 1 },
@@ -81,8 +80,10 @@ export const guests = [
   { name: "Meires karolina favacho de Almeida", maxGuests: 0 },
 
   // FAMÍLIA 13
-  { name: "Omar Martins", maxGuests: 0 },
-  { name: "Andreta de Paula", maxGuests: 0 },
+  { name: "Omar Conde Aleixo Martins", maxGuests: 4 },
+  { name: "Andretta de Paula Martins", maxGuests: 4 },
+  { name: "Fernando Martins", maxGuests: 0 },
+  { name: "Mariana Martins", maxGuests: 0 },
   { name: "Bruno Moraes de Oliveira", maxGuests: 4, isGodfather: true },
   { name: "Ana Clara", maxGuests: 0, isGodmother: true },
   { name: "Lorena Moraes de Oliveira", maxGuests: 1 },
@@ -95,6 +96,8 @@ export const guests = [
   { name: "Aldenair Luz", maxGuests: 0 },
   { name: "Wallace Luz", maxGuests: 0 },
   { name: "Nicole Maria", maxGuests: 0 },
+  { name: "Osorio Passos Reis", maxGuests: 0 },
+  { name: "Elis Regina Cardoso Felipe", maxGuests: 0 },
 
   // FAMÍLIA 15
   { name: "Ellane Nascimento", maxGuests: 0 },
@@ -105,8 +108,11 @@ export const guests = [
   { name: "Jaqueline Oliveira", maxGuests: 1 },
 
   // FAMÍLIA 17
-  { name: "Osorio Passos Reis", maxGuests: 0 },
-  { name: "Elis Regina Cardoso Felipe", maxGuests: 0 },
+  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
+
+  // FAMÍLIA 18
+  { name: "Maxwell", maxGuests: 2 },
+  { name: "Andréa de Paula", maxGuests: 2 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
