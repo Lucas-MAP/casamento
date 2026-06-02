@@ -112,7 +112,7 @@ export const guests = [
 
   // FAMÍLIA 18
   { name: "Maxwell Martins de Paula", maxGuests: 2 },
-  { name: "Andréa de Paula", maxGuests: 2 },
+  { name: "Andrea de Paula", maxGuests: 2 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
