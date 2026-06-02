@@ -111,7 +111,7 @@ export const guests = [
   { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
 
   // FAMÍLIA 18
-  { name: "Maxwell", maxGuests: 2 },
+  { name: "Maxwell Martins de Paula", maxGuests: 2 },
   { name: "Andréa de Paula", maxGuests: 2 },
 
   // INDIVIDUAIS
