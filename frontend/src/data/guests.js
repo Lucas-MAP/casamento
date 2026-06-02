@@ -80,8 +80,8 @@ export const guests = [
   { name: "Meires karolina favacho de Almeida", maxGuests: 0 },
 
   // FAMÍLIA 13
-  { name: "Omar Conde Aleixo Martins", maxGuests: 4 },
-  { name: "Andretta de Paula Martins", maxGuests: 4 },
+  { name: "Omar Martins", maxGuests: 4 },
+  { name: "Andretta Martins", maxGuests: 4 },
   { name: "Fernando Martins", maxGuests: 0 },
   { name: "Mariana Martins", maxGuests: 0 },
   { name: "Bruno Moraes de Oliveira", maxGuests: 4, isGodfather: true },
@@ -111,7 +111,7 @@ export const guests = [
   { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
 
   // FAMÍLIA 18
-  { name: "Maxwell Martins de Paula", maxGuests: 2 },
+  { name: "Maxwell Martins", maxGuests: 2 },
   { name: "Andrea de Paula", maxGuests: 2 },
 
   // INDIVIDUAIS
