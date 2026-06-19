@@ -20,18 +20,20 @@ const normalize = (str) =>
     .replace(/[\u0300-\u036f]/g, "");
 
 const findGuest = (value) => {
-  if (!value || value.length < 2) return null;
+  if (!value || value.trim().length < 3) return null;
 
   const typed = normalize(value);
 
   return guests.find((g) => {
     const listName = normalize(g.name);
 
-    return (
-      typed === listName ||
-      typed.includes(listName) ||
-      listName.includes(typed)
-    );
+    // nome completo
+    if (typed === listName) return true;
+
+    // primeiro nome apenas
+    const firstName = listName.split(" ")[0];
+
+    return typed === firstName;
   });
 };
 
