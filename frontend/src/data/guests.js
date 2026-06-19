@@ -1,14 +1,13 @@
 export const guests = [
   // FAMÍLIA 1
   { name: "Tadeu Alves", maxGuests: 0 },
-  { name: "Telma Alves", maxGuests: 1 },
+  { name: "Telma Lúcia Paes Alves Dória", maxGuests: 1 },
   { name: "Mariana Doria", maxGuests: 0 },
   { name: "Rodolfo Alves", maxGuests: 0 },
   { name: "Rafael Alves", maxGuests: 0 },
   { name: "Thaiana patrícia doria alves braga", maxGuests: 0 },
   { name: "Charles albuquerque braga", maxGuests: 0 },
   { name: "Rita Alves", maxGuests: 0 },
-  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
 
   // FAMÍLIA 2
   { name: "Isabel Chagas", maxGuests: 0 },
@@ -32,7 +31,7 @@ export const guests = [
   { name: "Dulce Maria", maxGuests: 2 },
 
   // FAMÍLIA 5
-  { name: "Thalya Soares Menezes", maxGuests: 1 },
+  { name: "Thalya Soares Menezes", maxGuests: 3 },
   { name: "Henrique Menezes", maxGuests: 1 },
   { name: "Haniely Soares Menezes", maxGuests: 1 },
 
@@ -41,10 +40,8 @@ export const guests = [
   { name: "Mateus Almeida", maxGuests: 0 },
   { name: "Amanda Silva", maxGuests: 0 },
   { name: "Victor Alexandre", maxGuests: 2, isGodfather: true },
-  { name: "Nazaré do Socorro", maxGuests: 2 },
-  { name: "Jorge Garcia", maxGuests: 2 },
-
-  // FAMÍLIA 7
+  { name: "Nazaré do Socorro", maxGuests: 1 },
+  { name: "Jorge Garcia", maxGuests: 1 },
   { name: "Wendell Marcio Silva", maxGuests: 0 },
   { name: "Alessandra Nunes", maxGuests: 0 },
 
@@ -55,8 +52,6 @@ export const guests = [
   { name: "Aldo Luiz do nascimento Alves", maxGuests: 0, isGodfather: true },
 
   // FAMÍLIA 10
-  { name: "Sebastiana Silva", maxGuests: 3 },
-  { name: "Manuel Lima", maxGuests: 3 },
   { name: "Marlene Silva", maxGuests: 3 },
   { name: "Josenildo Ferreira", maxGuests: 3 },
   { name: "Joelison Ferreira", maxGuests: 0 },
@@ -65,6 +60,8 @@ export const guests = [
   { name: "Josenilson Ferreira", maxGuests: 1 },
   { name: "Dina Ferreira", maxGuests: 1 },
   { name: "Maria de Fátima", maxGuests: 1 },
+  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
+
 
   // FAMÍLIA 11
   { name: "Adriana Almeida", maxGuests: 1 },
@@ -76,19 +73,19 @@ export const guests = [
   { name: "Kauane Fernandes", maxGuests: 1 },
 
   // FAMÍLIA 12
-  { name: "Diego viana delfino", maxGuests: 0 },
-  { name: "Meires karolina favacho de Almeida", maxGuests: 0 },
+  { name: "Diego viana delfino", maxGuests: 1 },
+  { name: "Meires karolina favacho de Almeida", maxGuests: 1 },
 
   // FAMÍLIA 13
-  { name: "Omar Martins", maxGuests: 4 },
+  { name: "Omar Martins", maxGuests: 1 },
   { name: "Andretta Martins", maxGuests: 4 },
   { name: "Fernando Martins", maxGuests: 0 },
   { name: "Mariana Martins", maxGuests: 0 },
   { name: "Bruno Moraes de Oliveira", maxGuests: 4, isGodfather: true },
   { name: "Ana Clara", maxGuests: 0, isGodmother: true },
-  { name: "Lorena Moraes de Oliveira", maxGuests: 1 },
-  { name: "Mara Moraes de Oliveira", maxGuests: 1 },
-  { name: "Cláudio Canêdo de Oliveira", maxGuests: 1 },
+  { name: "Lorena Moraes de Oliveira", maxGuests: 2 },
+  { name: "Mara Moraes de Oliveira", maxGuests: 2 },
+  { name: "Cláudio Canêdo de Oliveira", maxGuests: 2 },
 
   // FAMÍLIA 14
   { name: "Arnold Thiago", maxGuests: 0, isGodfather: true },
@@ -100,8 +97,8 @@ export const guests = [
   { name: "Elis Regina Cardoso Felipe", maxGuests: 0 },
 
   // FAMÍLIA 15
-  { name: "Ellane Nascimento", maxGuests: 0 },
-  { name: "Edson Mendes", maxGuests: 0 },
+  { name: "Ellane Nascimento", maxGuests: 1 },
+  { name: "Edson Mendes", maxGuests: 1 },
 
   // FAMÍLIA 16
   { name: "Cláudio Oliveira", maxGuests: 1 },
@@ -111,8 +108,8 @@ export const guests = [
   { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
 
   // FAMÍLIA 18
-  { name: "Maxwell Martins", maxGuests: 2 },
-  { name: "Andrea de Paula", maxGuests: 2 },
+  { name: "Maxwell Martins de Paula", maxGuests: 2 },
+  { name: "Andréa de Paula", maxGuests: 2 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
