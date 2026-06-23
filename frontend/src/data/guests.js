@@ -114,4 +114,9 @@ export const guests = [
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
+  // FAMÍLIA 19
+  { name: "Anna Paula", maxGuests: 3 },
+  { name: "Henrique Marques", maxGuests: 3 },
+  { name: "Olivia Maria", maxGuests: 3 },
+
 ];
