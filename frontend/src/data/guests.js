@@ -42,6 +42,8 @@ export const guests = [
   { name: "Victor Alexandre", maxGuests: 2, isGodfather: true },
   { name: "Nazaré do Socorro", maxGuests: 1 },
   { name: "Jorge Garcia", maxGuests: 1 },
+
+  // FAMÍLIA 7
   { name: "Wendell Marcio Silva", maxGuests: 0 },
   { name: "Alessandra Nunes", maxGuests: 0 },
 
@@ -60,8 +62,6 @@ export const guests = [
   { name: "Josenilson Ferreira", maxGuests: 1 },
   { name: "Dina Ferreira", maxGuests: 1 },
   { name: "Maria de Fátima", maxGuests: 1 },
-  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
-
 
   // FAMÍLIA 11
   { name: "Adriana Almeida", maxGuests: 1 },
@@ -92,31 +92,31 @@ export const guests = [
   { name: "Angélica Luz", maxGuests: 0 },
   { name: "Aldenair Luz", maxGuests: 0 },
   { name: "Wallace Luz", maxGuests: 0 },
-  { name: "Nicole Maria", maxGuests: 0 },
+  { name: "Nicole Maria", maxGuests: 1 },
   { name: "Osorio Passos Reis", maxGuests: 0 },
   { name: "Elis Regina Cardoso Felipe", maxGuests: 0 },
 
   // FAMÍLIA 15
-  { name: "Ellane Nascimento", maxGuests: 1 },
-  { name: "Edson Mendes", maxGuests: 1 },
+  { name: "Ellane Nascimento", maxGuests: 2 },
+  { name: "Edson Mendes", maxGuests: 2 },
 
   // FAMÍLIA 16
-  { name: "Cláudio Oliveira", maxGuests: 1 },
-  { name: "Jaqueline Oliveira", maxGuests: 1 },
+  { name: "Cláudio Oliveira", maxGuests: 2 },
+  { name: "Jaqueline Oliveira", maxGuests: 2 },
 
   // FAMÍLIA 17
   { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
 
   // FAMÍLIA 18
-  { name: "Maxwell Martins de Paula", maxGuests: 2 },
-  { name: "Andréa de Paula", maxGuests: 2 },
+  { name: "Anna Paula", maxGuests: 2 },
+  { name: "Henrique Marques", maxGuests: 2 },
+  { name: "Olivia Maria", maxGuests: 2 },
+
+  // FAMÍLIA 19
+  { name: "Leila Nogueira Barbosa", maxGuests: 1 },
+  { name: "Vanderlan Martins de Sousa", maxGuests: 1 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
-  // FAMÍLIA 19
-  { name: "Anna Paula", maxGuests: 3 },
-  { name: "Henrique Marques", maxGuests: 3 },
-  { name: "Olivia Maria", maxGuests: 3 },
-
 ];
