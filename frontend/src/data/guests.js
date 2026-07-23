@@ -4,7 +4,6 @@ export const guests = [
   { name: "Telma Lúcia Paes Alves Dória", maxGuests: 1 },
   { name: "Mariana Doria", maxGuests: 0 },
   { name: "Rodolfo Alves", maxGuests: 0 },
-  { name: "Rafael Alves", maxGuests: 0 },
   { name: "Thaiana patrícia doria alves braga", maxGuests: 0 },
   { name: "Charles albuquerque braga", maxGuests: 0 },
   { name: "Rita Alves", maxGuests: 0 },
@@ -16,11 +15,9 @@ export const guests = [
   { name: "Augusto Belchior", maxGuests: 0 },
   { name: "Antonia Chagas Pinheiro", maxGuests: 0 },
   { name: "Benedita Chagas Pinheiro", maxGuests: 0 },
-  { name: "Rodão Chagas Pinheiro", maxGuests: 3 },
 
   // FAMÍLIA 3
   { name: "William Gabriel Souza Quayson", maxGuests: 3, isGodfather: true },
-  { name: "Fernanda Cristina Souza Lobato da Cunha", maxGuests: 0 },
   { name: "Adria Kallfman", maxGuests: 3, isGodmother: true },
   { name: "Glaucia Lobato", maxGuests: 3 },
 
@@ -37,15 +34,13 @@ export const guests = [
 
   // FAMÍLIA 6
   { name: "Nathalia Almeida", maxGuests: 0, isGodmother: true },
-  { name: "Mateus Almeida", maxGuests: 0 },
+  { name: "Matheus Almeida", maxGuests: 0 },
   { name: "Amanda Silva", maxGuests: 0 },
   { name: "Victor Alexandre", maxGuests: 2, isGodfather: true },
   { name: "Nazaré do Socorro", maxGuests: 1 },
   { name: "Jorge Garcia", maxGuests: 1 },
-
-  // FAMÍLIA 7
-  { name: "Wendell Marcio Silva", maxGuests: 0 },
-  { name: "Alessandra Nunes", maxGuests: 0 },
+  { name: "Wendell Márcio Silva", maxGuests: 0 },
+  { name: "Alessandra dos Santos Nunes", maxGuests: 0 },
 
   // FAMÍLIA 9
   { name: "Aldo Luiz Paes Alves", maxGuests: 3 },
@@ -81,11 +76,6 @@ export const guests = [
   { name: "Andretta Martins", maxGuests: 4 },
   { name: "Fernando Martins", maxGuests: 0 },
   { name: "Mariana Martins", maxGuests: 0 },
-  { name: "Bruno Moraes de Oliveira", maxGuests: 4, isGodfather: true },
-  { name: "Ana Clara", maxGuests: 0, isGodmother: true },
-  { name: "Lorena Moraes de Oliveira", maxGuests: 2 },
-  { name: "Mara Moraes de Oliveira", maxGuests: 2 },
-  { name: "Cláudio Canêdo de Oliveira", maxGuests: 2 },
 
   // FAMÍLIA 14
   { name: "Arnold Thiago", maxGuests: 0, isGodfather: true },
@@ -105,8 +95,11 @@ export const guests = [
   { name: "Jaqueline Oliveira", maxGuests: 2 },
 
   // FAMÍLIA 17
-  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
-  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
+  { name: "Bruno Moraes de Oliveira", maxGuests: 4, isGodfather: true },
+  { name: "Ana Clara", maxGuests: 0, isGodmother: true },
+  { name: "Lorena Moraes de Oliveira", maxGuests: 2 },
+  { name: "Mara Moraes de Oliveira", maxGuests: 2 },
+  { name: "Cláudio Canêdo de Oliveira", maxGuests: 2 },
 
   // FAMÍLIA 18
   { name: "Anna Paula", maxGuests: 2 },
@@ -114,8 +107,14 @@ export const guests = [
   { name: "Olivia Maria", maxGuests: 2 },
 
   // FAMÍLIA 19
-  { name: "Leila Nogueira Barbosa", maxGuests: 1 },
-  { name: "Vanderlan Martins de Sousa", maxGuests: 1 },
+  { name: "Leila Nogueira Barbosa", maxGuests: 2 },
+  { name: "Vanderlan Martins de Sousa", maxGuests: 2 },
+
+  // FAMÍLIA 20
+  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
+  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
+  { name: "Paulo Henrique Cardoso Monteiro", maxGuests: 2 },
+  { name: "Jheny Raissa Santos Cabral", maxGuests: 2 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
