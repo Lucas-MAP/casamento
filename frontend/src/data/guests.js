@@ -39,8 +39,9 @@ export const guests = [
   { name: "Victor Alexandre", maxGuests: 2, isGodfather: true },
   { name: "Nazaré do Socorro", maxGuests: 1 },
   { name: "Jorge Garcia", maxGuests: 1 },
-  { name: "Wendell Márcio Silva", maxGuests: 0 },
+  { name: "Wendell Márcio Silva", maxGuests: 3 },
   { name: "Alessandra dos Santos Nunes", maxGuests: 0 },
+  { name: "gabriel nunes silva", maxGuests: 0 },
 
   // FAMÍLIA 9
   { name: "Aldo Luiz Paes Alves", maxGuests: 3 },
@@ -117,6 +118,7 @@ export const guests = [
   { name: "Jheny Raissa Santos Cabral", maxGuests: 2 },
 
   // INDIVIDUAIS
+  { name: "Carolina Yukari", maxGuests: 0},
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
 ];
