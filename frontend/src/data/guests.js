@@ -56,17 +56,11 @@ export const guests = [
   { name: "Julyene Ferreira", maxGuests: 0 },
   { name: "Antonia Jamylce", maxGuests: 0 },
   { name: "Josenilson Ferreira", maxGuests: 1 },
-  { name: "Dina Ferreira", maxGuests: 1 },
   { name: "Maria de Fátima", maxGuests: 1 },
 
   // FAMÍLIA 11
-  { name: "Adriana Almeida", maxGuests: 1 },
-  { name: "Francislei Fernandes", maxGuests: 1 },
-  { name: "Luis Henrique", maxGuests: 1 },
-  { name: "Lívia Beatriz", maxGuests: 0 },
   { name: "Flaviane Fernandes", maxGuests: 0 },
   { name: "Jailson Valério", maxGuests: 0 },
-  { name: "Kauane Fernandes", maxGuests: 1 },
 
   // FAMÍLIA 12
   { name: "Diego viana delfino", maxGuests: 1 },
@@ -116,6 +110,12 @@ export const guests = [
   { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
   { name: "Paulo Henrique Cardoso Monteiro", maxGuests: 2 },
   { name: "Jheny Raissa Santos Cabral", maxGuests: 2 },
+  { name: "Yasmin Silva", maxGuests: 2 },
+  { name: "Yuri Braga", maxGuests: 2 },
+
+  // FAMÍLIA 21
+  { name: "Leandro Sousa", maxGuests: 2 },
+  { name: "Hilda Progênio", maxGuests: 2 },
 
   // INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
