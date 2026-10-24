@@ -4,8 +4,15 @@ import Location from "./components/Location";
 import ConfirmPresence from "./components/ConfirmPresence";
 import ScrollToTop from "./components/ScrollToTop";
 import GiftList from "./components/GiftList";
+import Presentear from "./pages/Presentear";
 
 function App() {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get("pagina") === "presentear") {
+    return <Presentear />;
+  }
+
   return (
     <>
       <Hero />
@@ -15,7 +22,7 @@ function App() {
       <Location />
 
       {/* PRESENTES */}
-      <GiftList/>
+      <GiftList />
 
       {/* PRESENÇA */}
       <ConfirmPresence />

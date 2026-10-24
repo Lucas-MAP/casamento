@@ -1,3 +1,4 @@
+
 import express from "express";
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
@@ -5,7 +6,7 @@ const router = express.Router();
 
 router.post("/payment", async (req, res) => {
   try {
-    const { name, amount } = req.body;
+    const { name, amount, source } = req.body;
 
     if (!name || !amount) {
       return res.status(400).json({
@@ -21,28 +22,33 @@ router.post("/payment", async (req, res) => {
 
     const preference = new Preference(client);
 
-    const response = await preference.create({
-      body: {
-        items: [
-          {
-            title: name,
-            quantity: 1,
-            unit_price: Number(amount),
-          },
-        ],
-
-        // 🔥 WEBHOOK (ESSENCIAL)
-        notification_url: "https://convite-lj.duckdns.org/api/webhook",
-
-        // 🔙 Redirecionamento
-        back_urls: {
-          success: "https://convite-lj.duckdns.org",
-          failure: "https://convite-lj.duckdns.org",
-          pending: "https://convite-lj.duckdns.org",
+    const paymentBody = {
+      items: [
+        {
+          title: name,
+          quantity: 1,
+          unit_price: Number(amount),
         },
+      ],
 
-        auto_return: "approved",
-      },
+      // WEBHOOK: permanece igual
+      notification_url: "https://convite-lj.duckdns.org/api/webhook",
+    };
+
+    // Mantém o retorno original para pagamentos do convite.
+    // Na página exclusiva de presentes, não configura retorno ao site.
+    if (source !== "presentear") {
+      paymentBody.back_urls = {
+        success: "https://convite-lj.duckdns.org",
+        failure: "https://convite-lj.duckdns.org",
+        pending: "https://convite-lj.duckdns.org",
+      };
+
+      paymentBody.auto_return = "approved";
+    }
+
+    const response = await preference.create({
+      body: paymentBody,
     });
 
     console.log("🔍 RESPONSE COMPLETA:");

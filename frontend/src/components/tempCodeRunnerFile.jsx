@@ -115,7 +115,7 @@ function GodfatherArea({ name, isGodmother }) {
           <div className="bg-white/95 rounded-2xl p-6 shadow-md border border-blue-100">
             <h4 className="font-semibold mb-3 text-xl text-[#1a3a5c]">📅 Data</h4>
             <p className="text-gray-600">18 de Dezembro de 2026</p>
-            <p className="text-gray-600">A partir das 19:00h</p>
+            <p className="text-gray-600">As 19:00h</p>
           </div>
         </div>
       </motion.div>

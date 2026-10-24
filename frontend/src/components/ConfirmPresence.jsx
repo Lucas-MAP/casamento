@@ -257,7 +257,7 @@ function ConfirmPresence() {
               </div>
 
               <span>
-                <strong>Horário:</strong> A partir das 19:00h
+                <strong>Horário:</strong> As 19:00h
               </span>
             </div>
 
