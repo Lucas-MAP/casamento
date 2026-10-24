@@ -3,81 +3,15 @@ import { motion } from "framer-motion";
 import { QRCodeSVG } from "qrcode.react";
 
 // ==================================================
-// CONFIGURAÇÃO DO PIX
-// Preencha com os dados da conta que receberá o Pix.
-// Não precisa enviar esses dados aqui no chat.
+// PIX COPIA E COLA OFICIAL DO PICPAY
+// O QR Code e o botão de cópia utilizam o mesmo código.
 // ==================================================
 
-const PIX_KEY = "Lucas.MPA1@outlook.com";
-const PIX_RECEIVER_NAME = "LUCAS MATEUS PINHEIRO ALVES";
-const PIX_CITY = "BELEM";
+const PIX_PAYLOAD =
+  "00020126440014br.gov.bcb.pix0122lucas.mpa1@outlook.com5204000053039865802BR5925LUCAS MATEUS PINHEIRO ALV6009Sao Paulo62290525REC6ADD0CBC7C8079689283056304383F";
 
-// ==================================================
-// GERAÇÃO DO PIX ESTÁTICO, SEM VALOR PREDEFINIDO
-// ==================================================
-
-function createField(id, value) {
-  const length = new TextEncoder().encode(value).length;
-
-  return `${id}${String(length).padStart(2, "0")}${value}`;
-}
-
-function normalizePixText(value, maxLength) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-zA-Z0-9 ]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .toUpperCase()
-    .slice(0, maxLength);
-}
-
-function calculateCRC16(payload) {
-  let crc = 0xffff;
-
-  for (let i = 0; i < payload.length; i++) {
-    crc ^= payload.charCodeAt(i) << 8;
-
-    for (let bit = 0; bit < 8; bit++) {
-      if (crc & 0x8000) {
-        crc = ((crc << 1) ^ 0x1021) & 0xffff;
-      } else {
-        crc = (crc << 1) & 0xffff;
-      }
-    }
-  }
-
-  return crc.toString(16).toUpperCase().padStart(4, "0");
-}
-
-function createPixPayload() {
-  const merchantAccount =
-    createField("00", "br.gov.bcb.pix") + createField("01", PIX_KEY.trim());
-
-  const payload =
-    createField("00", "01") +
-    createField("01", "11") +
-    createField("26", merchantAccount) +
-    createField("52", "0000") +
-    createField("53", "986") +
-    createField("58", "BR") +
-    createField("59", normalizePixText(PIX_RECEIVER_NAME, 25)) +
-    createField("60", normalizePixText(PIX_CITY, 15)) +
-    createField("62", createField("05", "***")) +
-    "6304";
-
-  return payload + calculateCRC16(payload);
-}
-
-const pixConfigured =
-  PIX_KEY.trim() !== "" &&
-  PIX_KEY !== "SUBSTITUA_PELA_SUA_CHAVE_PIX" &&
-  PIX_RECEIVER_NAME.trim() !== "" &&
-  PIX_RECEIVER_NAME !== "NOME DO TITULAR" &&
-  PIX_CITY.trim() !== "";
-
-const pixPayload = pixConfigured ? createPixPayload() : "";
+const pixConfigured = PIX_PAYLOAD.trim().length > 0;
+const pixPayload = PIX_PAYLOAD;
 
 // ==================================================
 // PÁGINA EXCLUSIVA PARA PRESENTEAR
@@ -88,20 +22,30 @@ function Presentear() {
   const [loading, setLoading] = useState(false);
   const [copyMessage, setCopyMessage] = useState("");
 
+  // COPIAR O PIX COPIA E COLA
+
   const handleCopyPix = async () => {
-    if (!pixPayload) {
+    if (!pixConfigured) {
       alert("O Pix ainda não foi configurado.");
       return;
     }
 
     try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Área de transferência indisponível.");
+      }
+
       await navigator.clipboard.writeText(pixPayload);
       setCopyMessage("Código Pix copiado!");
     } catch (error) {
       console.error("Erro ao copiar Pix:", error);
-      alert("Não foi possível copiar automaticamente. Tente novamente.");
+
+      // Alternativa se o navegador bloquear a cópia automática.
+      window.prompt("Copie o código Pix abaixo:", pixPayload);
     }
   };
+
+  // PAGAMENTO COM CARTÃO PELO MERCADO PAGO
 
   const handleCardPayment = async () => {
     const value = Number(amount);
@@ -111,7 +55,7 @@ function Presentear() {
       return;
     }
 
-    // Valida o valor para aceitar no máximo duas casas decimais.
+    // Aceita no máximo duas casas decimais.
     const cents = Math.round(value * 100);
     const roundedValue = cents / 100;
 
@@ -149,7 +93,9 @@ function Presentear() {
       window.location.href = data.url;
     } catch (error) {
       console.error("Erro ao iniciar pagamento:", error);
+
       alert("Não foi possível iniciar o pagamento. Tente novamente.");
+
       setLoading(false);
     }
   };
@@ -292,6 +238,8 @@ function Presentear() {
               Pagamento processado com segurança pelo Mercado Pago.
             </p>
           </section>
+
+          {/* RODAPÉ */}
 
           <footer className="text-center pt-2">
             <p className="font-script text-3xl text-[#1a3a5c]/70">
