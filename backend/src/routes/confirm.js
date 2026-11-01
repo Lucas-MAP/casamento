@@ -20,7 +20,7 @@ function validateInput(name, guestsCount) {
   if (!name || typeof name !== "string") return "Nome inválido";
   const clean = name.trim();
   if (clean.length < 2 || clean.length > 100) return "Nome inválido";
-  if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(clean)) return "Nome contém caracteres inválidos";
+  if (!/^[a-zA-ZÀ-ÿ0-9\s-]+$/.test(clean)) return "Nome contém caracteres inválidos";
   if (!Number.isInteger(guestsCount)) return "Quantidade inválida";
   if (guestsCount < 1 || guestsCount > 5) return "Quantidade inválida";
   return null;
