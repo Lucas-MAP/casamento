@@ -20,7 +20,8 @@ export const guests = [
   // FAMÍLIA 3
   { name: "William Gabriel Souza Quayson", maxGuests: 3, isGodfather: true },
   { name: "Adria Kallfman", maxGuests: 3, isGodmother: true },
-  { name: "Glaucia Lobato", maxGuests: 3 },
+  { name: "Glaucia Maria Souza Lobato", maxGuests: 3 },
+  { name: "Fernanda Cristina Souza Lobato da Cunha", maxGuests: 3 },
 
   // FAMÍLIA 4
   { name: "Dalila Maria", maxGuests: 2, isGodmother: true },
@@ -98,18 +99,21 @@ export const guests = [
   { name: "Cássio Miranda", maxGuests: 2 },
 
   // FAMÍLIA 20
-  { name: "Genival Rodrigues dos Santos", maxGuests: 1 },
-  { name: "Deuzinete Lopes da Silva", maxGuests: 1 },
   { name: "Paulo Henrique Cardoso Monteiro", maxGuests: 2 },
   { name: "Jheny Raissa Santos Cabral", maxGuests: 2 },
   { name: "Yasmin Silva", maxGuests: 2 },
   { name: "Yuri Braga", maxGuests: 2 },
 
   // FAMÍLIA 21
-  { name: "Leandro Sousa", maxGuests: 2 },
   { name: "Hilda Progênio", maxGuests: 2 },
 
-  // INDIVIDUAIS — MADRINHAS
+  // MADRINHAS INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
+
+  // EQUIPE DA CERIMÔNIA
+  { name: "RAISSA CERIMONIAL", maxGuests: 0 },
+  { name: "ASSISTENTE 1 DA CERIMONIAL", maxGuests: 0 },
+  { name: "ASSISTENTE 2 DA CERIMONIAL", maxGuests: 0 },
+  { name: "Totem Retratus Belém - assistente ", maxGuests: 0 },
 ];
