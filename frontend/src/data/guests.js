@@ -16,6 +16,9 @@ export const guests = [
   { name: "Augusto Belchior", maxGuests: 0 },
   { name: "Antonia Chagas Pinheiro", maxGuests: 0 },
   { name: "Benedita Chagas Pinheiro", maxGuests: 0 },
+  { name: "Maria Pinheiro", maxGuests: 2 },
+  { name: "Luiz Pinheiro", maxGuests: 2 },
+
 
   // FAMÍLIA 3
   { name: "William Gabriel Souza Quayson", maxGuests: 3, isGodfather: true },
