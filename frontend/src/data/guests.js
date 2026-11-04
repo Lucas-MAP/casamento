@@ -14,11 +14,10 @@ export const guests = [
   { name: "Taisa Pinheiro", maxGuests: 0 },
   { name: "Joana Chagas Pinheiro", maxGuests: 0 },
   { name: "Augusto Belchior", maxGuests: 0 },
-  { name: "Antonia Chagas Pinheiro", maxGuests: 0 },
+  { name: "João Paulo Pinheiro Santana", maxGuests: 0 },
   { name: "Benedita Chagas Pinheiro", maxGuests: 0 },
   { name: "Maria Pinheiro", maxGuests: 2 },
   { name: "Luiz Pinheiro", maxGuests: 2 },
-
 
   // FAMÍLIA 3
   { name: "William Gabriel Souza Quayson", maxGuests: 3, isGodfather: true },
@@ -110,6 +109,13 @@ export const guests = [
   // FAMÍLIA 21
   { name: "Hilda Progênio", maxGuests: 2 },
 
+  // FAMÍLIA 22
+  { name: "Michele Santos", maxGuests: 2 },
+
+  // FAMÍLIA 23
+  { name: "Pedrina Nazaré", maxGuests: 2 },
+  { name: "Debora", maxGuests: 2 },
+
   // MADRINHAS INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
   { name: "Elisabeth Dias", maxGuests: 0, isGodmother: true },
@@ -118,5 +124,5 @@ export const guests = [
   { name: "RAISSA CERIMONIAL", maxGuests: 0 },
   { name: "ASSISTENTE 1 DA CERIMONIAL", maxGuests: 0 },
   { name: "ASSISTENTE 2 DA CERIMONIAL", maxGuests: 0 },
-  { name: "Totem Retratus Belém - assistente ", maxGuests: 0 },
+  { name: "Totem Retratus Belém - assistente", maxGuests: 0 },
 ];
