@@ -111,10 +111,11 @@ export const guests = [
 
   // FAMÍLIA 22
   { name: "Michele Santos", maxGuests: 2 },
+  { name: "Ivo Santos", maxGuests: 2 },
 
   // FAMÍLIA 23
-  { name: "Pedrina Nazaré", maxGuests: 2 },
-  { name: "Debora", maxGuests: 2 },
+  { name: "Pedrina Nazaré Alves Pereira", maxGuests: 2 },
+  { name: "Debora pinto Botenho", maxGuests: 2 },
 
   // MADRINHAS INDIVIDUAIS
   { name: "Lohanne Sarmento", maxGuests: 0, isGodmother: true },
